@@ -7,6 +7,7 @@ use Repository\DictionaryRepository;
 use Silex\Api\ControllerProviderInterface;
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
+use Service\FileUploader;
 
 class GunsController implements ControllerProviderInterface
 {
@@ -62,6 +63,9 @@ class GunsController implements ControllerProviderInterface
 
         if ($form->isValid()) {
             $data = $form->getData();
+            $fileUploader = new FileUploader($app['config.photos_directory']);
+            $fileName = $fileUploader->upload($data['image_name']);
+            $data['image_name'] = $fileName;
             $conn->insert('guns', $data);
             echo 'Dodano broń';
         }
