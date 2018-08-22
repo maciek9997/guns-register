@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Hellox
+{% endblock %}
+
+{% block body %}
+	<h1>
+	    Hello {{ name|default('World') }}!
+	</h1>
+    <ul>
+        {% for row in guns %}
+            <li>{{ row.name }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+s
