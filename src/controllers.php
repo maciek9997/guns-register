@@ -5,7 +5,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Controller\HelloController;
 use Controller\HomeController;
 use Controller\GunsController;
 use Controller\AuthController;
@@ -37,8 +36,5 @@ $app->error(function (\Exception $e, Request $request, $code) use ($app) {
     return new Response($app['twig']->resolveTemplate($templates)->render(array('code' => $code)), $code);
 });
 
-
-
-$app->mount('/hello', new HelloController());
 $app->mount('/guns', new GunsController());
 $app->mount('/auth', new AuthController());
