@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'title.auth_register'|trans }}{% endblock %}
+
+{% block body %}
+
+
+
+    <div class="row">
+        <div class="col-md-offset-2 col-md-8">
+            <div class="thumbnail">
+                <img src="{{ asset(download_photos_directory ~ '/' ~ gun.image_name) }}" alt="...">
+                <div class="caption">
+                    <h3>{{ gun.name }}</h3>
+                    <table class="table table-bordered">
+                            <tr>
+                                <td>Typ amunicji</td>
+                                <td>{{ dictionary['ammunitionTypes'][gun.ammunition_type] }}</td>
+                            </tr>
+                            <tr>
+                                <td>Typ broni</td>
+                                <td>{{ dictionary['gunTypes'][gun.gun_type] }}</td>
+                            </tr>
+
+                            <tr>
+                                <td>Typ ładowania</td>
+                                <td>{{ dictionary['reloadTypes'][gun.reload_type] }}</td>
+                            </tr>
+                            <tr>
+                                <td>Typ zamka</td>
+                                <td>{{ dictionary['lockTypes'][gun.lock_type] }}</td>
+                            </tr>
+                            <tr>
+                                <td>Kaliber</td>
+                                <td>{{ dictionary['caliberTypes'][gun.caliber_type] }}</td>
+                            </tr>
+
+                    </table>
+                    <a href="{{ url('guns_list')}}">
+                        <button type="button" class="btn btn-success">
+                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                            Powrót do listy
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

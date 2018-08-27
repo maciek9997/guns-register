@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'title.auth_register'|trans }}{% endblock %}
+
+{% block body %}
+    <a href="{{ url('guns') }}">
+        <button type="button" class="btn btn-success pull-right" style="margin-bottom:10px;">
+            Dodaj nową broń
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        </button>
+    </a>
+
+    <table class="table table-bordered">
+        <tr class="warning">
+            <td>Id.</td>
+            <td>Nazwa broni</td>
+            <td>Operacje</td>
+        </tr>
+        {% for gun in guns %}
+            <tr>
+                <td>{{ gun.id }}</td>
+                <td>{{ gun.name }}</td>
+                <td>
+                    <a href="{{ url('guns_show', {id: gun.id}) }}">
+                        <button type="button" class="btn btn-success">Podgląd
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        </button>
+                    </a>
+                    <a href="{{ url('guns_delete', {id: gun.id}) }}">
+                        <button type="button" class="btn btn-danger">Usuń
+                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                        </button>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
