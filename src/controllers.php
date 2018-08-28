@@ -2,21 +2,11 @@
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\RedirectResponse;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+
 use Controller\HomeController;
 use Controller\GunsController;
 use Controller\AuthController;
-
-//Request::setTrustedProxies(array('127.0.0.1'));
-
-//$app->get('/', function () use ($app) {
-//
-//    return $app['twig']->render('index.html.twig', array());
-//})
-//->bind('homepage')
-//;
+use Controller\GunsUserController;
 
 $app->mount('/', new HomeController());
 
@@ -36,5 +26,12 @@ $app->error(function (\Exception $e, Request $request, $code) use ($app) {
     return new Response($app['twig']->resolveTemplate($templates)->render(array('code' => $code)), $code);
 });
 
-$app->mount('/guns', new GunsController());
+//ALL
 $app->mount('/auth', new AuthController());
+
+//ADMIN
+$app->mount('/admin/guns', new GunsController());
+
+//USER
+$app->mount('/user/guns', new GunsUserController());
+

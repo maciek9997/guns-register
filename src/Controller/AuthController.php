@@ -26,7 +26,7 @@ class AuthController implements ControllerProviderInterface
         $controller->match('login', [$this, 'loginAction'])
             ->method('GET|POST')
             ->bind('auth_login');
-        $controller->get('logout', [$this, 'logoutAction'])
+        $controller->match('logout', [$this, 'logoutAction'])
             ->bind('auth_logout');
         $controller->get('register', [$this, 'registerAction'])
             ->method('GET|POST')
@@ -80,10 +80,22 @@ class AuthController implements ControllerProviderInterface
         if ($form->isValid()) {
             $data = $form->getData();
             $data['password'] = $app['security.encoder.bcrypt']->encodePassword($data['password'], '');
-            $data['role_id'] = 1;
+            $data['role_id'] = 2;
             $conn = $app['db'];
             $conn->insert('users', $data);
-            echo 'Dodano usera';
+
+            $app['session']->getFlashBag()->add(
+                'messages',
+                [
+                    'type'    => 'success',
+                    'message' => 'Rejestracja przebiegła pomyślnie',
+                ]
+            );
+
+            return $app->redirect(
+                $app['url_generator']->generate('auth_login'),
+                301
+            );
         }
 
         $this->view['form'] = $form->createView();

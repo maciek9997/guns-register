@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'title.auth_register'|trans }}{% endblock %}
+
+{% block body %}
+    <table class="table table-bordered">
+        <tr class="warning">
+            <td>Id.</td>
+            <td>Nazwa broni</td>
+            <td>Operacje</td>
+        </tr>
+        {% for gun in guns %}
+            <tr>
+                <td>{{ gun.id }}</td>
+                <td>{{ gun.name }}</td>
+                <td>
+                    <a href="{{ url('user_guns_show', {id: gun.id}) }}">
+                        <button type="button" class="btn btn-success">Podgląd
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        </button>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
