@@ -3,9 +3,6 @@
 {% block title %}{{ gun.name }}{% endblock %}
 
 {% block body %}
-
-
-
     <div class="row">
         <div class="col-md-offset-2 col-md-8">
             <div class="thumbnail">
@@ -52,5 +49,22 @@
                 </div>
             </div>
         </div>
+    </div>
+    {% form_theme form with ['bootstrap_3_horizontal_layout.html.twig', 'form/form_errors.html.twig'] %}
+    <h3>{{ 'title.add_coment'|trans }}</h3>
+
+    {% if error is defined and error|length %}
+        {% include 'default/_single_alert_message.html.twig' with {
+            is_single_message: true,
+            is_dismissible: false,
+            type: 'danger',
+            message: error,
+        } %}
+    {% endif %}
+
+    <div>
+        {{ form_start(form, { method: 'post', action: path('user_guns_show', {id: gun.id}) }) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
     </div>
 {% endblock %}

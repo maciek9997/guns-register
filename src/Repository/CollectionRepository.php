@@ -58,7 +58,7 @@ class CollectionRepository
             ->select('*')
             ->from('collections')
             ->where('gun_id =:gunId')
-            ->where('user_id =:userId')
+            ->andWhere('user_id =:userId')
             ->setParameter('userId', $userId)
             ->setParameter('gunId', $gunId);
 

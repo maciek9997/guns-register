@@ -1,0 +1,19 @@
+
+{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+    <li>
+        <a href="{{ url('auth_logout') }}">
+            <i class="fa fa-eye fa-lg"></i> {{ 'menu.logout'|trans }}
+        </a>
+    </li>
+{% else %}
+    <li>
+        <a href="{{ url('auth_register') }}">
+            <i class="fa fa-eye fa-lg"></i> {{ 'menu.register'|trans }}
+        </a>
+    </li>
+    <li>
+        <a href="{{ url('auth_login') }}">
+            <i class="fa fa-eye fa-lg"></i> {{ 'menu.login'|trans }}
+        </a>
+    </li>
+{% endif %}
