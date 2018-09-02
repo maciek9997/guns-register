@@ -91,7 +91,7 @@ class GunsUserController implements ControllerProviderInterface
                 'messages',
                 [
                     'type' => 'success',
-                    'message' => 'Dodano broń do kolekcji',
+                    'message' => 'message.gun_add_success',
                 ]
             );
         } else {
@@ -99,7 +99,7 @@ class GunsUserController implements ControllerProviderInterface
                 'messages',
                 [
                     'type' => 'info',
-                    'message' => 'Ta broń jest już w twojej kolekcji',
+                    'message' => 'message.is_in_collection',
                 ]
             );
         }

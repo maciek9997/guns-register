@@ -24,40 +24,40 @@ class GunsAddForm extends AbstractType
         return $builder
             ->add('name', TextType::class, array(
                 'constraints' => new Assert\NotBlank(),
-                'label' => 'Name'
+                'label' => 'label.gun_name'
             ))
             ->add('is_blackpowder', ChoiceType::class, array(
                 'required' => true,
-                'choices' => ['No' => 0, 'Yes' => 1],
+                'choices' => ['choice.negative' => 0, 'choice.positive' => 1],
                 'expanded' => true,
-                'label' => 'Is your weapon blackpowder?'
+                'label' => 'label.is_blackpowder'
             ))
             ->add('ammunition_type', ChoiceType::class, array(
                 'choices' => $options['dictionary']['ammunitionTypes'],
-                'label' => 'Ammunition type'
+                'label' => 'label.ammunition_type'
             ))
             ->add('gun_type', ChoiceType::class, array(
                 'choices' => $options['dictionary']['gunTypes'],
-                'label' => 'Gun type',
+                'label' => 'label.gun_type',
                 'expanded' => true
             ))
             ->add('reload_type', ChoiceType::class, array(
                 'choices' => $options['dictionary']['reloadTypes'],
-                'label' => 'Reload types'
+                'label' => 'label.reload_type'
             ))
             ->add('lock_type', ChoiceType::class, array(
                 'choices' => $options['dictionary']['lockTypes'],
-                'label' => 'Lock type'
+                'label' => 'label.lock_type'
             ))
             ->add('caliber_type', ChoiceType::class, array(
                 'choices' => $options['dictionary']['caliberTypes'],
-                'label' => 'Caliber type'
+                'label' => 'label.caliber_type'
             ))
             ->add('permission', ChoiceType::class, array(
                 'required' => true,
-                'choices' => ['No' => 0, 'Yes' => 1],
+                'choices' => ['choice.negative' => 0, 'choice.positive' => 1],
                 'expanded' => true,
-                'label' => 'Does your weapon require permission?'
+                'label' => 'label.permission_needed'
             ))
            ->add(
                 'image_name',
@@ -83,7 +83,7 @@ class GunsAddForm extends AbstractType
                 ]
             )
             ->add('submit', SubmitType::class, [
-                'label' => 'Save',
+                'label' => 'action.add',
             ]);
     }
 

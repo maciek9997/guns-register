@@ -88,7 +88,7 @@ class AuthController implements ControllerProviderInterface
                 'messages',
                 [
                     'type'    => 'success',
-                    'message' => 'Rejestracja przebiegła pomyślnie',
+                    'message' => 'message.registration_success',
                 ]
             );
 

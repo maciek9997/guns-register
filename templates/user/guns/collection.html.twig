@@ -1,14 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ 'title.auth_register'|trans }}{% endblock %}
+{% block title %}{{ 'title.collection'|trans }}{% endblock %}
 
 {% block body %}
-    <h3>Twoja kolekcja broni</h3>
+    <h3>{{ 'title.collection'|trans }}</h3>
     <table class="table table-bordered">
         <tr class="warning">
-            <td>Id.</td>
-            <td>Nazwa broni</td>
-            <td>Operacje</td>
+            <td>{{ 'label.gun_id'|trans }}</td>
+            <td>{{ 'label.gun_name'|trans }}</td>
+            <td>{{ 'label.gun_operations'|trans }}</td>
         </tr>
         {% for gun in guns %}
             <tr>
@@ -16,7 +16,7 @@
                 <td>{{ gun.name }}</td>
                 <td>
                     <a href="{{ url('user_guns_show', {id: gun.gun_id}) }}">
-                        <button type="button" class="btn btn-success">Podgląd
+                        <button type="button" class="btn btn-success">{{ 'action.gun_show'|trans }}
                             <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                         </button>
                     </a>

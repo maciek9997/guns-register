@@ -1,0 +1,183 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="title.auth_login">
+                <source>title.auth_login</source>
+                <target>Login</target>
+            </trans-unit>
+            <trans-unit id="label.login">
+                <source>label.login</source>
+                <target>Email</target>
+            </trans-unit>
+            <trans-unit id="label.password_login">
+                <source>label.password_login</source>
+                <target>Password</target>
+            </trans-unit>
+            <trans-unit id="action.login">
+                <source>action.login</source>
+                <target>Login</target>
+            </trans-unit>
+            <trans-unit id="title.auth_register">
+                <source>title.auth_register</source>
+                <target>Registration</target>
+            </trans-unit>
+             <trans-unit id="label.name">
+                <source>label.name</source>
+                <target>Name</target>
+            </trans-unit>
+            <trans-unit id="label.surname">
+                <source>label.surname</source>
+                <target>Surname</target>
+            </trans-unit>
+            <trans-unit id="label.address">
+                <source>label.address</source>
+                <target>Address</target>
+            </trans-unit>
+            <trans-unit id="label.email">
+                <source>label.email</source>
+                <target>Email</target>
+            </trans-unit>
+            <trans-unit id="label.phone">
+                <source>label.phone</source>
+                <target>Phone</target>
+            </trans-unit>
+            <trans-unit id="label.password_register">
+                <source>label.password_register</source>
+                <target>Password</target>
+            </trans-unit>
+            <trans-unit id="action.register">
+                <source>action.register</source>
+                <target>Register</target>
+            </trans-unit>
+            <trans-unit id="menu.title">
+                <source>menu.title</source>
+                <target>Firearms Registration System</target>
+            </trans-unit>
+            <trans-unit id="menu.home_page">
+                <source>menu.home_page</source>
+                <target>Home Page</target>
+            </trans-unit>
+            <trans-unit id="menu.register">
+                <source>menu.register</source>
+                <target>Registration</target>
+            </trans-unit>
+            <trans-unit id="menu.guns">
+                <source>menu.guns</source>
+                <target>Guns</target>
+            </trans-unit>
+            <trans-unit id="menu.login">
+                <source>menu.login</source>
+                <target>Login</target>
+            </trans-unit>
+            <trans-unit id="title.home_page">
+                <source>title.home_page</source>
+                <target>Welcome to the Firearms Registration System</target>
+            </trans-unit>
+            <trans-unit id="subtitle.home_page">
+                <source>subtitle.home_page</source>
+                <target>Choose Your Weapon</target>
+            </trans-unit>
+            <trans-unit id="action.gun_add">
+                <source>action.gun_add</source>
+                <target>Add new gun</target>
+            </trans-unit>
+            <trans-unit id="label.gun_id">
+                <source>label.gun_id</source>
+                <target>Id</target>
+            </trans-unit>
+            <trans-unit id="label.gun_name">
+                <source>label.gun_name</source>
+                <target>Name</target>
+            </trans-unit>
+            <trans-unit id="label.gun_operations">
+                <source>label.gun_operations</source>
+                <target>Operations</target>
+            </trans-unit>
+            <trans-unit id="action.gun_show">
+                <source>action.gun_show</source>
+                <target>Show</target>
+            </trans-unit>
+            <trans-unit id="action.gun_delete">
+                <source>action.gun_delete</source>
+                <target>Delete</target>
+            </trans-unit>
+             <trans-unit id="label.ammunition_type">
+                <source>label.ammunition_type</source>
+                <target>Ammunition type</target>
+            </trans-unit>
+            <trans-unit id="label.gun_type">
+                <source>label.gun_type</source>
+                <target>Gun type</target>
+            </trans-unit>
+            <trans-unit id="label.reload_type">
+                <source>label.reload_type</source>
+                <target>Reload type</target>
+            </trans-unit>
+            <trans-unit id="label.lock_type">
+                <source>label.lock_type</source>
+                <target>Lock type</target>
+            </trans-unit>
+            <trans-unit id="label.caliber_type">
+                <source>label.caliber_type</source>
+                <target>Caliber</target>
+            </trans-unit>
+            <trans-unit id="action.back_to_list">
+                <source>action.back_to_list</source>
+                <target>Back to list</target>
+            </trans-unit>
+            <trans-unit id="title.gun_add">
+                <source>title.gun_add</source>
+                <target>Adding new gun</target>
+            </trans-unit>
+            <trans-unit id="label.is_blackpowder">
+                <source>label.is_blackpowder</source>
+                <target>Is this gun blackpowder?</target>
+            </trans-unit>
+            <trans-unit id="label.permission_needed">
+                <source>label.permission_needed</source>
+                <target>Does this gun require permission?</target>
+            </trans-unit>
+            <trans-unit id="choice.negative">
+                <source>choice.negative</source>
+                <target>No</target>
+            </trans-unit>
+            <trans-unit id="choice.positive">
+                <source>choice.positive</source>
+                <target>Yes</target>
+            </trans-unit>
+            <trans-unit id="label.photo">
+                <source>label.photo</source>
+                <target>Photo</target>
+            </trans-unit>
+            <trans-unit id="action.add">
+                <source>action.add</source>
+                <target>Add</target>
+            </trans-unit>
+            <trans-unit id="title.collection">
+                <source>title.collection</source>
+                <target>Your guns collection</target>
+            </trans-unit>
+            <trans-unit id="title.guns_list">
+                <source>title.guns_list</source>
+                <target>Guns available</target>
+            </trans-unit>
+             <trans-unit id="action.add_to_collection">
+                <source>action.add_to_collection</source>
+                <target>Add to collection</target>
+            </trans-unit>
+            <trans-unit id="message.gun_add_success">
+                <source>message.gun_add_success</source>
+                <target>Gun added successfully</target>
+            </trans-unit>
+            <trans-unit id="message.is_in_collection">
+                <source>message.is_in_collection</source>
+                <target>Gun is already in Your collection</target>
+            </trans-unit>
+             <trans-unit id="message.registration_success">
+                <source>message.registration_success</source>
+                <target>Registration successfull</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

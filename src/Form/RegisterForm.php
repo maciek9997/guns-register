@@ -22,24 +22,30 @@ class RegisterForm extends AbstractType
     {
         return $builder
             ->add('name', TextType::class, array(
-                'constraints' => new Assert\NotBlank()
+                'constraints' => new Assert\NotBlank(),
+                'label' => 'label.name'
             ))
             ->add('surname', TextType::class, array(
-                'constraints' => new Assert\NotBlank()
+                'constraints' => new Assert\NotBlank(),
+                'label' => 'label.surname'
             ))
             ->add('address', TextType::class, array(
-                'constraints' => new Assert\NotBlank()
+                'constraints' => new Assert\NotBlank(),
+                'label' => 'label.address'
             ))
             ->add('login', TextType::class, array(
                 'constraints' => new Assert\Email(),
-                'label' => 'Email'
+                'label' => 'label.email'
             ))
             ->add('phone', TextType::class, array(
-                'constraints' => new Assert\NotBlank()
+                'constraints' => new Assert\NotBlank(),
+                'label' => 'label.phone'
             ))
-            ->add('password', PasswordType::class, array())
+            ->add('password', PasswordType::class, array(
+                'label' => 'label.password_register'
+            ))
             ->add('submit', SubmitType::class, [
-                'label' => 'Save',
+                'label' => 'action.register',
             ]);
     }
 

@@ -22,28 +22,28 @@
                             <span class="icon-bar"></span>
                         </button>
                         <a class="navbar-brand" href="">
-                            <i class="fa fa-map-pin fa-rotate-315 fa-lg"></i> <i class="fa fa-car fa-lg"></i>Rejestr broni palnej</a>
+                            <i class="fa fa-map-pin fa-rotate-315 fa-lg"></i> <i class="fa fa-car fa-lg"></i>{{ 'menu.title'|trans }}</a>
                     </div>
                     <div class="collapse navbar-collapse" id="mynavbar-content">
                         <ul class="nav navbar-nav">
                             <li>
                                 <a href="{{ url('homepage') }}">
-                                    <i class="fa fa-eye fa-lg"></i> {{ 'Strona główna'|trans }}
+                                    <i class="fa fa-eye fa-lg"></i> {{ 'menu.home_page'|trans }}
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ url('auth_register') }}">
-                                    <i class="fa fa-eye fa-lg"></i> {{ 'Rejestracja'|trans }}
+                                    <i class="fa fa-eye fa-lg"></i> {{ 'menu.register'|trans }}
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ url('guns_list') }}">
-                                    <i class="fa fa-eye fa-lg"></i> {{ 'Bronie'|trans }}
+                                    <i class="fa fa-eye fa-lg"></i> {{ 'menu.guns'|trans }}
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ url('auth_login') }}">
-                                    <i class="fa fa-eye fa-lg"></i> {{ 'Logowanie'|trans }}
+                                    <i class="fa fa-eye fa-lg"></i> {{ 'menu.login'|trans }}
                                 </a>
                             </li>
                         </ul>
@@ -56,7 +56,23 @@
             <div class="container">
                 <div class="col-md-12">
                     {% include 'default/_flash_messages.html.twig' %}
-                    {% block body %}{% endblock %}
+                    {% block body %}
+                        <div class="row">
+                            <div class="col-md-offset-2 col-md-8">
+                                <div class="thumbnail">
+                                    <div class="col-xs-12 center-block text-center">
+                                        <h1>{{ 'title.home_page'|trans }}</h1>
+                                        <h2>
+                                            <span class="glyphicon glyphicon-hand-left" aria-hidden="true"></span>
+                                             {{ 'subtitle.home_page'|trans }}
+                                            <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>
+                                        </h2>
+                                    </div>
+                                    <img src="{{ asset('https://i.etsystatic.com/13221305/r/il/0f4ad3/1198679732/il_570xN.1198679732_gnuw.jpg') }}" />
+                                </div>
+                            </div>
+                        </div>
+                    {% endblock %}
                 </div>
             </div>
 

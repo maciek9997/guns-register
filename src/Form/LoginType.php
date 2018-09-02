@@ -46,7 +46,7 @@ class LoginType extends AbstractType
             'password',
             PasswordType::class,
             [
-                'label' => 'label.password',
+                'label' => 'label.password_login',
                 'required' => true,
                 'attr' => [
                     'max_length' => 32,

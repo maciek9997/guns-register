@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ 'title.auth_register'|trans }}{% endblock %}
+{% block title %}{{ gun.name }}{% endblock %}
 
 {% block body %}
 
@@ -13,40 +13,40 @@
                 <div class="caption">
                     <h3>{{ gun.name }}</h3>
                     <table class="table table-bordered">
-                            <tr>
-                                <td>Typ amunicji</td>
-                                <td>{{ dictionary['ammunitionTypes'][gun.ammunition_type] }}</td>
-                            </tr>
-                            <tr>
-                                <td>Typ broni</td>
-                                <td>{{ dictionary['gunTypes'][gun.gun_type] }}</td>
-                            </tr>
+                        <tr>
+                            <td>{{ 'label.ammunition_type'|trans }}</td>
+                            <td>{{ dictionary['ammunitionTypes'][gun.ammunition_type] }}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ 'label.gun_type'|trans }}</td>
+                            <td>{{ dictionary['gunTypes'][gun.gun_type] }}</td>
+                        </tr>
 
-                            <tr>
-                                <td>Typ ładowania</td>
-                                <td>{{ dictionary['reloadTypes'][gun.reload_type] }}</td>
-                            </tr>
-                            <tr>
-                                <td>Typ zamka</td>
-                                <td>{{ dictionary['lockTypes'][gun.lock_type] }}</td>
-                            </tr>
-                            <tr>
-                                <td>Kaliber</td>
-                                <td>{{ dictionary['caliberTypes'][gun.caliber_type] }}</td>
-                            </tr>
+                        <tr>
+                            <td>{{ 'label.reload_type'|trans }}</td>
+                            <td>{{ dictionary['reloadTypes'][gun.reload_type] }}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ 'label.lock_type'|trans }}</td>
+                            <td>{{ dictionary['lockTypes'][gun.lock_type] }}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ 'label.caliber_type'|trans }}</td>
+                            <td>{{ dictionary['caliberTypes'][gun.caliber_type] }}</td>
+                        </tr>
 
                     </table>
                     <a href="{{ url('user_guns_list')}}">
                         <button type="button" class="btn btn-success">
                             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                            Powrót do listy
+                            {{ 'action.back_to_list'|trans }}
                         </button>
                     </a>
 
                     <a href="{{ url('user_guns_add', {id: gun.id})}}">
                         <button type="button" class="btn btn-info">
                             <span class="glyphicon glyphicon-screenshot" aria-hidden="true"></span>
-                            Dodaj do kolekcji
+                           {{ 'action.add_to_collection'|trans }}
                         </button>
                     </a>
                 </div>
