@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{% block title %}Default title{% endblock %}</title>
+        <title>{% block title %}{{ 'title.home_page'|trans }}{% endblock %}</title>
         <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" />
         {% block stylesheets %}
             <link href="{{ asset('css/main.css') }}" type="text/css" rel="stylesheet" />

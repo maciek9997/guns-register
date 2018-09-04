@@ -70,6 +70,14 @@
                 <source>menu.login</source>
                 <target>Login</target>
             </trans-unit>
+            <trans-unit id="menu.logout">
+                <source>menu.logout</source>
+                <target>Logout</target>
+            </trans-unit>
+            <trans-unit id="menu.collection">
+                <source>menu.collection</source>
+                <target>Your Collection</target>
+            </trans-unit>
             <trans-unit id="title.home_page">
                 <source>title.home_page</source>
                 <target>Welcome to the Firearms Registration System</target>
@@ -134,8 +142,8 @@
                 <source>label.is_blackpowder</source>
                 <target>Is this gun blackpowder?</target>
             </trans-unit>
-            <trans-unit id="label.permission_needed">
-                <source>label.permission_needed</source>
+            <trans-unit id="label.permission">
+                <source>label.permission</source>
                 <target>Does this gun require permission?</target>
             </trans-unit>
             <trans-unit id="choice.negative">
@@ -177,6 +185,22 @@
              <trans-unit id="message.registration_success">
                 <source>message.registration_success</source>
                 <target>Registration successfull</target>
+            </trans-unit>
+            <trans-unit id="message.comment_add_success">
+                <source>message.comment_add_success</source>
+                <target>Comment added</target>
+            </trans-unit>
+            <trans-unit id="title.add_comment">
+                <source>title.add_comment</source>
+                <target>Add comment</target>
+            </trans-unit>
+            <trans-unit id="label.comment">
+                <source>label.comment</source>
+                <target>Comment content</target>
+            </trans-unit>
+             <trans-unit id="action.comment_add">
+                <source>action.comment_add</source>
+                <target>Add</target>
             </trans-unit>
         </body>
     </file>

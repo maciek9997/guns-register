@@ -70,6 +70,14 @@
                 <source>menu.login</source>
                 <target>Logowanie</target>
             </trans-unit>
+            <trans-unit id="menu.logout">
+                <source>menu.logout</source>
+                <target>Wyloguj</target>
+            </trans-unit>
+            <trans-unit id="menu.collection">
+                <source>menu.collection</source>
+                <target>Twoja Kolekcja</target>
+            </trans-unit>
             <trans-unit id="title.home_page">
                 <source>title.home_page</source>
                 <target>Witamy w Systemie Rejestracji Broni Palnej</target>
@@ -134,8 +142,8 @@
                 <source>label.is_blackpowder</source>
                 <target>Czy ta broń jest czarnoprochowa?</target>
             </trans-unit>
-            <trans-unit id="label.permission_needed">
-                <source>label.permission_needed</source>
+            <trans-unit id="label.permission">
+                <source>label.permission</source>
                 <target>Czy ta broń wymaga pozwolenia?</target>
             </trans-unit>
             <trans-unit id="choice.negative">
@@ -177,6 +185,22 @@
              <trans-unit id="message.registration_success">
                 <source>message.registration_success</source>
                 <target>Rejestracja przebiegła pomyślnie</target>
+            </trans-unit>
+             <trans-unit id="message.comment_add_success">
+                <source>message.comment_add_success</source>
+                <target>Komentarz dodany</target>
+            </trans-unit>
+             <trans-unit id="title.add_comment">
+                <source>title.add_comment</source>
+                <target>Dodaj komentarz</target>
+            </trans-unit>
+            <trans-unit id="label.comment">
+                <source>label.comment</source>
+                <target>Treść komentarza</target>
+            </trans-unit>
+             <trans-unit id="action.comment_add">
+                <source>action.comment_add</source>
+                <target>Dodaj</target>
             </trans-unit>
         </body>
     </file>

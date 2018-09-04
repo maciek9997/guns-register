@@ -31,6 +31,14 @@
                             <td>{{ 'label.caliber_type'|trans }}</td>
                             <td>{{ dictionary['caliberTypes'][gun.caliber_type] }}</td>
                         </tr>
+                        <tr>
+                            <td>{{ 'label.is_blackpowder'|trans }}</td>
+                            <td>{{ gun.is_blackpowder ? 'choice.positive' |trans :'choice.negative' |trans}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ 'label.permission'|trans }}</td>
+                            <td>{{ gun.permission ? 'choice.positive' |trans :'choice.negative' |trans}}</td>
+                        </tr>
 
                     </table>
                     <a href="{{ url('user_guns_list')}}">
@@ -51,7 +59,7 @@
         </div>
     </div>
     {% form_theme form with ['bootstrap_3_horizontal_layout.html.twig', 'form/form_errors.html.twig'] %}
-    <h3>{{ 'title.add_coment'|trans }}</h3>
+    <h3>{{ 'title.add_comment'|trans }}</h3>
 
     {% if error is defined and error|length %}
         {% include 'default/_single_alert_message.html.twig' with {

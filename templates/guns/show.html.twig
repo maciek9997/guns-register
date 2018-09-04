@@ -38,10 +38,10 @@
                                 <td>{{ 'label.is_blackpowder'|trans }}</td>
                                 <td>{{ gun.is_blackpowder ? 'choice.positive' |trans :'choice.negative' |trans}}</td>
                             </tr>
-                        <tr>
-                            <td>{{ 'label.permission'|trans }}</td>
-                            <td>{{ gun.permission ? 'choice.positive' |trans :'choice.negative' |trans}}</td>
-                        </tr>
+                            <tr>
+                                <td>{{ 'label.permission'|trans }}</td>
+                                <td>{{ gun.permission ? 'choice.positive' |trans :'choice.negative' |trans}}</td>
+                            </tr>
                     </table>
                     <a href="{{ url('guns_list')}}">
                         <button type="button" class="btn btn-success">

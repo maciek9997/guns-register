@@ -57,7 +57,7 @@ class GunsAddForm extends AbstractType
                 'required' => true,
                 'choices' => ['choice.negative' => 0, 'choice.positive' => 1],
                 'expanded' => true,
-                'label' => 'label.permission_needed'
+                'label' => 'label.permission'
             ))
            ->add(
                 'image_name',

@@ -21,7 +21,7 @@ class CommentForm extends AbstractType
                 'label' => 'label.comment'
             ))
             ->add('submit', SubmitType::class, [
-                'label' => 'action.comment.add',
+                'label' => 'action.comment_add',
             ]);
 
     }
