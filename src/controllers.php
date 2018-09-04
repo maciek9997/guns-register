@@ -7,6 +7,7 @@ use Controller\HomeController;
 use Controller\GunsController;
 use Controller\AuthController;
 use Controller\GunsUserController;
+use Controller\UsersController;
 
 $app->mount('/', new HomeController());
 
@@ -31,6 +32,7 @@ $app->mount('/auth', new AuthController());
 
 //ADMIN
 $app->mount('/admin/guns', new GunsController());
+$app->mount('/admin/users', new UsersController());
 
 //USER
 $app->mount('/user/guns', new GunsUserController());

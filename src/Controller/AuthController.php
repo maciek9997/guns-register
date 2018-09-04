@@ -10,6 +10,7 @@ use Form\RegisterForm;
 use Silex\Application;
 use Silex\Api\ControllerProviderInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Repository\UserRepository;
 
 
 /**
@@ -78,6 +79,24 @@ class AuthController implements ControllerProviderInterface
         $form->handleRequest($request);
 
         if ($form->isValid()) {
+            $usersRepository = new UserRepository($app['db']);
+            $checkMail = $usersRepository->getUserByLogin($form->getData()['login']);
+
+            if ($checkMail) {
+                $app['session']->getFlashBag()->add(
+                    'messages',
+                    [
+                        'type'    => 'warning',
+                        'message' => 'message.email_in_use',
+                    ]
+                );
+
+                return $app->redirect(
+                    $app['url_generator']->generate('auth_register'),
+                    301
+                );
+            }
+
             $data = $form->getData();
             $data['password'] = $app['security.encoder.bcrypt']->encodePassword($data['password'], '');
             $data['role_id'] = 2;

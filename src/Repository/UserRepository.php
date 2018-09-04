@@ -125,4 +125,24 @@ class UserRepository
             return $roles;
         }
     }
+
+    public function findAll()
+    {
+        $queryBuilder = $this->db->createQueryBuilder();
+        $queryBuilder->select('*')->from('users');
+
+        return $queryBuilder->execute()->fetchAll();
+    }
+
+    public function findNameById($id)
+    {
+        $queryBuilder = $this->db->createQueryBuilder();
+        $queryBuilder
+            ->select(['name', 'surname'])
+            ->from('users')
+            ->where('id = :id')
+            ->setParameter(':id', $id, \PDO::PARAM_INT);
+
+        return $queryBuilder->execute()->fetch();
+    }
 }

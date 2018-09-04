@@ -66,7 +66,6 @@ class GunsUserController implements ControllerProviderInterface
         $gun = $gunsRepository->findGunById($request->get('id'));
         $dictionary = new DictionaryRepository($app['db']);
         $commentsRepository = new CommentsRepository($app['db']);
-        $comments = $commentsRepository->findComments($request->get('id'));
 
         $dictionaryList =  [
             'lockTypes' => array_flip($dictionary->getLockTypes()),
@@ -94,6 +93,7 @@ class GunsUserController implements ControllerProviderInterface
             );
         }
 
+        $comments = $commentsRepository->findComments($request->get('id'));
         $this->view['form'] = $form->createView();
 
         return $app['twig']->render('user/guns/show.html.twig', array(

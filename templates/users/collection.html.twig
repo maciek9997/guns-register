@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.collection_admin'|trans }}
+    {{ user.name }} {{ user.surname }}
+{% endblock %}
+
+{% block body %}
+    <h3>
+        {{ 'title.collection_admin'|trans }}:
+        {{ user.name }} {{ user.surname }}
+    </h3>
+    {% if guns is not empty %}
+        <table class="table table-bordered">
+            <tr class="warning">
+                <td>{{ 'label.gun_id'|trans }}</td>
+                <td>{{ 'label.gun_name'|trans }}</td>
+                <td>{{ 'label.gun_operations'|trans }}</td>
+            </tr>
+            {% for gun in guns %}
+                <tr>
+                    <td>{{ gun.gun_id }}</td>
+                    <td>{{ gun.name }}</td>
+                    <td>
+                        <a href="{{ url('guns_show', {id: gun.gun_id}) }}">
+                            <button type="button" class="btn btn-success">{{ 'action.gun_show'|trans }}
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </button>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <div class="alert alert-warning" role="alert">
+            {{ 'info.empty.collection' |trans }}
+        </div>
+    {% endif %}
+    <a href="{{ url('users') }}">
+        <button type="button" class="btn btn-success">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            {{ 'action.back_to_users'|trans }}
+        </button>
+    </a>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'title.guns_list'|trans }}{% endblock %}
+
+{% block body %}
+    <table class="table table-bordered">
+        <tr class="warning">
+            <td>{{ 'label.user_id'|trans }}</td>
+            <td>{{ 'label.gun_name'|trans }}</td>
+            <td>{{ 'label.gun_name'|trans }}</td>
+            <td>{{ 'label.gun_name'|trans }}</td>
+            <td>{{ 'label.gun_operations'|trans }}</td>
+        </tr>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.surname }}</td>
+                <td>{{ user.login }}</td>
+                <td>
+                    <a href="{{ url('users_collection', {id: user.id}) }}">
+                        <button type="button" class="btn btn-success">{{ 'action.gun_show'|trans }}
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        </button>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

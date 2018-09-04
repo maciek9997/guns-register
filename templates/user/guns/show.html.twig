@@ -75,4 +75,13 @@
         {{ form_widget(form) }}
         {{ form_end(form) }}
     </div>
+
+    <div class="row">
+        {% for comment in comments %}
+            <blockquote>
+                <p>{{ comment.comment }}.</p>
+                <footer>{{ comment.name }} {{ comment.surname }}</footer>
+            </blockquote>
+        {% endfor %}
+    </div>
 {% endblock %}

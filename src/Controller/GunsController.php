@@ -65,7 +65,18 @@ class GunsController implements ControllerProviderInterface
             $fileName = $fileUploader->upload($data['image_name']);
             $data['image_name'] = $fileName;
             $conn->insert('guns', $data);
-            echo 'Dodano broń';
+            $app['session']->getFlashBag()->add(
+                'messages',
+                [
+                    'type'    => 'success',
+                    'message' => 'Broń została dodana',
+                ]
+            );
+
+            return $app->redirect(
+                $app['url_generator']->generate('guns_list'),
+                301
+            );
         }
 
         $this->view['form'] = $form->createView();
