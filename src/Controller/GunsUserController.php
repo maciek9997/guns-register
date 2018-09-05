@@ -67,13 +67,7 @@ class GunsUserController implements ControllerProviderInterface
         $dictionary = new DictionaryRepository($app['db']);
         $commentsRepository = new CommentsRepository($app['db']);
 
-        $dictionaryList =  [
-            'lockTypes' => array_flip($dictionary->getLockTypes()),
-            'ammunitionTypes' => array_flip($dictionary->getAmmuntionTypes()),
-            'caliberTypes' => array_flip($dictionary->getCaliberTypes()),
-            'gunTypes' => array_flip($dictionary->getGunTypes()),
-            'reloadTypes' => array_flip($dictionary->getReloadTypes()),
-        ];
+        $dictionaryList = $dictionary->getAllTypes();
 
         $form = $app['form.factory']->createBuilder(CommentForm::class)->getForm();
         $form->handleRequest($request);

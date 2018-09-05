@@ -48,13 +48,7 @@ class GunsController implements ControllerProviderInterface
         $dictionary = new DictionaryRepository($app['db']);
 
         $form = $app['form.factory']->createBuilder(GunsAddForm::class, [],[
-            'dictionary' => [
-                'lockTypes' =>$dictionary->getLockTypes(),
-                'ammunitionTypes' => $dictionary->getAmmuntionTypes(),
-                'caliberTypes' => $dictionary->getCaliberTypes(),
-                'gunTypes' => $dictionary->getGunTypes(),
-                'reloadTypes' => $dictionary->getReloadTypes(),
-            ]
+            'dictionary' => $dictionary->getAllTypesForAddForm()
         ])->getForm();
 
         $form->handleRequest($request);
@@ -116,13 +110,7 @@ class GunsController implements ControllerProviderInterface
         $gunsRepository = new GunsRepository($app['db']);
         $gun = $gunsRepository->findGunById($request->get('id'));
         $dictionary = new DictionaryRepository($app['db']);
-        $dictionaryList =  [
-            'lockTypes' => array_flip($dictionary->getLockTypes()),
-            'ammunitionTypes' => array_flip($dictionary->getAmmuntionTypes()),
-            'caliberTypes' => array_flip($dictionary->getCaliberTypes()),
-            'gunTypes' => array_flip($dictionary->getGunTypes()),
-            'reloadTypes' => array_flip($dictionary->getReloadTypes()),
-        ];
+        $dictionaryList =  $dictionary->getAllTypes();
 
         return $app['twig']->render('guns/show.html.twig', array(
             'gun' => $gun,

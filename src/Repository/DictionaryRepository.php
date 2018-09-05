@@ -75,4 +75,26 @@ class DictionaryRepository
 
         return $statement->fetchAll(\PDO::FETCH_KEY_PAIR);
     }
+
+    public function getAllTypes()
+    {
+        return [
+            'lockTypes' => array_flip($this->getLockTypes()),
+            'ammunitionTypes' => array_flip($this->getAmmuntionTypes()),
+            'caliberTypes' => array_flip($this->getCaliberTypes()),
+            'gunTypes' => array_flip($this->getGunTypes()),
+            'reloadTypes' => array_flip($this->getReloadTypes()),
+        ];
+    }
+
+    public function getAllTypesForAddForm()
+    {
+        return [
+            'lockTypes' => $this->getLockTypes(),
+            'ammunitionTypes' => $this->getAmmuntionTypes(),
+            'caliberTypes' => $this->getCaliberTypes(),
+            'gunTypes' => $this->getGunTypes(),
+            'reloadTypes' => $this->getReloadTypes(),
+        ];
+    }
 }

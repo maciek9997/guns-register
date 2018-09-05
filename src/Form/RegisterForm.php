@@ -14,6 +14,8 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Validator\Constraints\UniqueEmail;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 
 class RegisterForm extends AbstractType
@@ -34,7 +36,12 @@ class RegisterForm extends AbstractType
                 'label' => 'label.address'
             ))
             ->add('login', TextType::class, array(
-                'constraints' => new Assert\Email(),
+                'constraints' => [
+                    new Assert\Email(),
+                    new UniqueEmail([
+                        'repository' => $options['user_repository']
+                    ])
+                ],
                 'label' => 'label.email'
             ))
             ->add('phone', TextType::class, array(
@@ -47,6 +54,15 @@ class RegisterForm extends AbstractType
             ->add('submit', SubmitType::class, [
                 'label' => 'action.register',
             ]);
+    }
+
+    public function configureOptions(OptionsResolver $resolver)
+    {
+        $resolver->setDefaults(
+            [
+                'user_repository' => null,
+            ]
+        );
     }
 
     public function getBlockPrefix()

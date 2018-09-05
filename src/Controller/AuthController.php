@@ -75,28 +75,15 @@ class AuthController implements ControllerProviderInterface
 
     public function registerAction(Application $app, Request $request)
     {
-        $form = $app['form.factory']->createBuilder(RegisterForm::class)->getForm();
+        $form = $app['form.factory']->createBuilder(
+            RegisterForm::class,
+            null,
+            ['user_repository' => new UserRepository($app['db'])]
+        )->getForm();
+
         $form->handleRequest($request);
 
         if ($form->isValid()) {
-            $usersRepository = new UserRepository($app['db']);
-            $checkMail = $usersRepository->getUserByLogin($form->getData()['login']);
-
-            if ($checkMail) {
-                $app['session']->getFlashBag()->add(
-                    'messages',
-                    [
-                        'type'    => 'warning',
-                        'message' => 'message.email_in_use',
-                    ]
-                );
-
-                return $app->redirect(
-                    $app['url_generator']->generate('auth_register'),
-                    301
-                );
-            }
-
             $data = $form->getData();
             $data['password'] = $app['security.encoder.bcrypt']->encodePassword($data['password'], '');
             $data['role_id'] = 2;
