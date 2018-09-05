@@ -170,27 +170,31 @@
                 <source>title.guns_list</source>
                 <target>Dostępna broń</target>
             </trans-unit>
-             <trans-unit id="action.add_to_collection">
+            <trans-unit id="action.add_to_collection">
                 <source>action.add_to_collection</source>
                 <target>Dodaj do kolekcji</target>
             </trans-unit>
-             <trans-unit id="message.gun_add_success">
+            <trans-unit id="message.gun_add_success">
                 <source>message.gun_add_success</source>
                 <target>Broń dodana pomyślnie</target>
+            </trans-unit>
+            <trans-unit id="message.gun_delete_success">
+                <source>message.gun_delete_success</source>
+                <target>Broń usunięta pomyślnie</target>
             </trans-unit>
             <trans-unit id="message.is_in_collection">
                 <source>message.is_in_collection</source>
                 <target>Ta broń jest już w Twojej kolekcji</target>
             </trans-unit>
-             <trans-unit id="message.registration_success">
+            <trans-unit id="message.registration_success">
                 <source>message.registration_success</source>
                 <target>Rejestracja przebiegła pomyślnie</target>
             </trans-unit>
-             <trans-unit id="message.comment_add_success">
+            <trans-unit id="message.comment_add_success">
                 <source>message.comment_add_success</source>
                 <target>Komentarz dodany</target>
             </trans-unit>
-             <trans-unit id="title.add_comment">
+            <trans-unit id="title.add_comment">
                 <source>title.add_comment</source>
                 <target>Dodaj komentarz</target>
             </trans-unit>
@@ -198,9 +202,45 @@
                 <source>label.comment</source>
                 <target>Treść komentarza</target>
             </trans-unit>
-             <trans-unit id="action.comment_add">
+            <trans-unit id="action.comment_add">
                 <source>action.comment_add</source>
                 <target>Dodaj</target>
+            </trans-unit>
+            <trans-unit id="menu.users">
+                <source>menu.users</source>
+                <target>Użytkownicy</target>
+            </trans-unit>
+            <trans-unit id="label.id">
+                <source>label.id</source>
+                <target>Id</target>
+            </trans-unit>
+            <trans-unit id="label.operations">
+                <source>label.operations</source>
+                <target>Operacje</target>
+            </trans-unit>
+            <trans-unit id="action.user_show">
+                <source>action.user_show</source>
+                <target>Pokaż kolekcję</target>
+            </trans-unit>
+            <trans-unit id="title.collection_admin">
+                <source>title.collection_admin</source>
+                <target>Kolekcja użytkownika</target>
+            </trans-unit>
+            <trans-unit id="action.back_to users">
+                <source>action.back_to_users</source>
+                <target>Powrót do listy użytkowników</target>
+            </trans-unit>
+            <trans-unit id="info.empty.collection">
+                <source>info.empty.collection</source>
+                <target>Kolekcja jest pusta</target>
+            </trans-unit>
+            <trans-unit id="title.users_list">
+                <source>title.users_list</source>
+                <target>Lista użytkowników</target>
+            </trans-unit>
+            <trans-unit id="title.comments">
+                <source>title.comments</source>
+                <target>Komentarze</target>
             </trans-unit>
         </body>
     </file>

@@ -178,6 +178,10 @@
                 <source>message.gun_add_success</source>
                 <target>Gun added successfully</target>
             </trans-unit>
+            <trans-unit id="message.gun_delete_success">
+                <source>message.gun_delete_success</source>
+                <target>Gun deleted successfully</target>
+            </trans-unit>
             <trans-unit id="message.is_in_collection">
                 <source>message.is_in_collection</source>
                 <target>Gun is already in Your collection</target>
@@ -198,9 +202,45 @@
                 <source>label.comment</source>
                 <target>Comment content</target>
             </trans-unit>
-             <trans-unit id="action.comment_add">
+            <trans-unit id="action.comment_add">
                 <source>action.comment_add</source>
                 <target>Add</target>
+            </trans-unit>
+            <trans-unit id="menu.users">
+                <source>menu.users</source>
+                <target>Users</target>
+            </trans-unit>
+            <trans-unit id="label.id">
+                <source>label.id</source>
+                <target>Id</target>
+            </trans-unit>
+            <trans-unit id="label.operations">
+                <source>label.operations</source>
+                <target>Operations</target>
+            </trans-unit>
+            <trans-unit id="action.user_show">
+                <source>action.user_show</source>
+                <target>Show collection</target>
+            </trans-unit>
+            <trans-unit id="title.collection_admin">
+                <source>title.collection_admin</source>
+                <target>Collection of user</target>
+            </trans-unit>
+            <trans-unit id="action.back_to users">
+                <source>action.back_to_users</source>
+                <target>Back to users list</target>
+            </trans-unit>
+            <trans-unit id="info.empty.collection">
+                <source>info.empty.collection</source>
+                <target>Collection is empty</target>
+            </trans-unit>
+            <trans-unit id="title.users_list">
+                <source>title.users_list</source>
+                <target>Users list</target>
+            </trans-unit>
+            <trans-unit id="title.comments">
+                <source>title.comments</source>
+                <target>Comments</target>
             </trans-unit>
         </body>
     </file>

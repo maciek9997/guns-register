@@ -69,7 +69,7 @@ class GunsController implements ControllerProviderInterface
                 'messages',
                 [
                     'type'    => 'success',
-                    'message' => 'Broń została dodana',
+                    'message' => 'message.gun_add_success',
                 ]
             );
 
@@ -101,7 +101,7 @@ class GunsController implements ControllerProviderInterface
             'messages',
             [
                 'type'    => 'success',
-                'message' => 'Broń została usunięta',
+                'message' => 'message.gun_delete_success',
             ]
         );
 

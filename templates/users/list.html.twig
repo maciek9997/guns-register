@@ -1,15 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ 'title.guns_list'|trans }}{% endblock %}
+{% block title %}{{ 'title.users_list'|trans }}{% endblock %}
 
 {% block body %}
+    <h1>{{ 'title.users_list'|trans }}</h1>
     <table class="table table-bordered">
         <tr class="warning">
-            <td>{{ 'label.user_id'|trans }}</td>
-            <td>{{ 'label.gun_name'|trans }}</td>
-            <td>{{ 'label.gun_name'|trans }}</td>
-            <td>{{ 'label.gun_name'|trans }}</td>
-            <td>{{ 'label.gun_operations'|trans }}</td>
+            <td>{{ 'label.id'|trans }}</td>
+            <td>{{ 'label.name'|trans }}</td>
+            <td>{{ 'label.surname'|trans }}</td>
+            <td>{{ 'label.email'|trans }}</td>
+            <td>{{ 'label.address'|trans }}</td>
+            <td>{{ 'label.phone'|trans }}</td>
+            <td>{{ 'label.operations'|trans }}</td>
         </tr>
         {% for user in users %}
             <tr>
@@ -17,9 +20,11 @@
                 <td>{{ user.name }}</td>
                 <td>{{ user.surname }}</td>
                 <td>{{ user.login }}</td>
+                <td>{{ user.address }}</td>
+                <td>{{ user.phone }}</td>
                 <td>
                     <a href="{{ url('users_collection', {id: user.id}) }}">
-                        <button type="button" class="btn btn-success">{{ 'action.gun_show'|trans }}
+                        <button type="button" class="btn btn-success">{{ 'action.user_show'|trans }}
                             <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                         </button>
                     </a>
