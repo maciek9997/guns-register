@@ -129,7 +129,7 @@ class UserRepository
     public function findAll()
     {
         $queryBuilder = $this->db->createQueryBuilder();
-        $queryBuilder->select('*')->from('users');
+        $queryBuilder->select('*')->from('users')->where('role_id != 1');
 
         return $queryBuilder->execute()->fetchAll();
     }
