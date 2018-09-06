@@ -35,7 +35,7 @@ class CommentsRepository
         $data = [];
         $data['user_id'] = $userId;
         $data['gun_id'] = $gunId;
-        $data['comment'] = $formData['comment'];
+        $data['comment'] = htmlspecialchars($formData['comment']);
 
         $this->db->insert('comments', $data);
    }

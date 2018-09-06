@@ -94,12 +94,6 @@ class GunsAddForm extends AbstractType
         ]);
     }
 
-    public function getDefaultOptions(array $options)
-    {
-        return [
-            'test' => false
-        ];
-    }
 
     public function getBlockPrefix()
     {

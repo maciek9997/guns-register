@@ -45,7 +45,9 @@ class RegisterForm extends AbstractType
                 'label' => 'label.email'
             ))
             ->add('phone', TextType::class, array(
-                'constraints' => new Assert\NotBlank(),
+                'constraints' => [
+                    new Assert\NotBlank(),
+                    new Assert\Regex("/^(\(0\))?[0-9]{9}$/")],
                 'label' => 'label.phone'
             ))
             ->add('password', PasswordType::class, array(

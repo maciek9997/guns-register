@@ -46,7 +46,7 @@ class AuthController implements ControllerProviderInterface
      */
     public function loginAction(Application $app, Request $request)
     {
-        $user = ['email' => $app['session']->get('_security.last_username')];
+        $user = ['login' => $app['session']->get('_security.last_username')];
         $form = $app['form.factory']->createBuilder(LoginType::class, $user)->getForm();
 
         return $app['twig']->render(
