@@ -33,6 +33,8 @@ class GunsUserController implements ControllerProviderInterface
             ->bind('user_guns_collection');
         $controller->match('add/{id}', [$this, 'addAction'])
             ->bind('user_guns_add');
+        $controller->match('delete/{id}', [$this, 'deleteAction'])
+            ->bind('user_guns_delete');
 
         return $controller;
     }
@@ -134,5 +136,28 @@ class GunsUserController implements ControllerProviderInterface
 
         return $app['twig']->render('user/guns/collection.html.twig', array('guns' => $guns));
     }
+
+    public function deleteAction(Application $app, Request $request)
+    {
+        $userToken = $app['security.token_storage']->getToken();
+        $userRep = new UserRepository($app['db']);
+        $user = $userRep->getUserByLogin($userToken->getUser()->getUserName());
+        $gunsRepository = new CollectionRepository($app['db']);
+        $gunsRepository->deleteGun($request->get('id'), $user['id']);
+
+        $app['session']->getFlashBag()->add(
+            'messages',
+            [
+                'type'    => 'success',
+                'message' => 'message.gun_delete_success',
+            ]
+        );
+
+        return $app->redirect(
+            $app['url_generator']->generate('user_guns_collection'),
+            301
+        );
+    }
+
 
 }

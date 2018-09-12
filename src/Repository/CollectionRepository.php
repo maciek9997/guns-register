@@ -70,4 +70,17 @@ class CollectionRepository
 
         return $queryBuilder->execute()->fetch();
     }
+
+    public function deleteGun($id, $userId)
+    {
+        $queryBuilder = $this->db->createQueryBuilder();
+        $queryBuilder
+            ->delete('collections')
+            ->where('id =:gunId')
+            ->andWhere('user_id =:userId')
+            ->setParameter('gunId', $id)
+            ->setParameter('userId', $userId);
+
+        return $queryBuilder->execute();
+    }
 }

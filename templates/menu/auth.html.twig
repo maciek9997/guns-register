@@ -2,6 +2,11 @@
 
 {% if is_granted('IS_AUTHENTICATED_FULLY') %}
     <li>
+        <a href="{{ url('auth_change_password') }}">
+            <i class="fa fa-eye fa-lg"></i> {{ 'menu.change_password'|trans }}
+        </a>
+    </li>
+    <li>
         <a href="{{ url('auth_logout') }}">
             <i class="fa fa-eye fa-lg"></i> {{ 'menu.logout'|trans }}
         </a>

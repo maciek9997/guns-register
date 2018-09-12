@@ -7,6 +7,7 @@ namespace Controller;
 
 use Form\LoginType;
 use Form\RegisterForm;
+use Form\ChangePasswordForm;
 use Silex\Application;
 use Silex\Api\ControllerProviderInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -32,6 +33,9 @@ class AuthController implements ControllerProviderInterface
         $controller->get('register', [$this, 'registerAction'])
             ->method('GET|POST')
             ->bind('auth_register');
+        $controller->get('change_password', [$this, 'changePasswordAction'])
+            ->method('GET|POST')
+            ->bind('auth_change_password');
 
         return $controller;
     }
@@ -114,5 +118,35 @@ class AuthController implements ControllerProviderInterface
         $this->view['form'] = $form->createView();
 
         return $app['twig']->render('auth/register.html.twig', array('form' => $form->createView()));
+    }
+
+    public function changePasswordAction(Application $app, Request $request)
+    {
+        $form = $app['form.factory']->createBuilder(ChangePasswordForm::class)->getForm();
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $userToken = $app['security.token_storage']->getToken();
+            $userRep = new UserRepository($app['db']);
+            $user = $userRep->getUserByLogin($userToken->getUser()->getUserName());
+            $data = $form->getData();
+            $pass = $app['security.encoder.bcrypt']->encodePassword($data['password'], '');
+            $conn = $app['db'];
+            $conn->executeUpdate('UPDATE users SET password = ? WHERE id = ?', array($pass, $user['id']));
+            $app['session']->getFlashBag()->add(
+                'messages',
+                [
+                    'type'    => 'success',
+                    'message' => 'message.change_password_success',
+                ]
+            );
+        }
+
+        return $app['twig']->render(
+            'auth/changePassword.html.twig',
+            [
+                'form' => $form->createView(),
+            ]
+        );
     }
 }
