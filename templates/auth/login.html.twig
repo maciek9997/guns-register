@@ -1,3 +1,5 @@
+{# Szablon formularza logowania #}
+
 {% extends 'base.html.twig' %}
 
 {% block title %}{{ 'title.auth_login'|trans }}{% endblock %}
@@ -11,7 +13,7 @@
             is_single_message: true,
             is_dismissible: false,
             type: 'danger',
-            message: error,
+            message: 'error.bad_credentials',
         } %}
     {% endif %}
 

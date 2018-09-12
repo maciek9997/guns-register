@@ -9,6 +9,9 @@ use Symfony\Component\Validator\Constraint;
 /**
  * Class UniqueTag.
  */
+
+//Klasa Constraints walidatora unikalności adresu email
+
 class UniqueEmail extends Constraint
 {
     /**
@@ -16,7 +19,8 @@ class UniqueEmail extends Constraint
      *
      * @var string $message
      */
-    public $message = '{{ email }} is not unique Email.';
+
+    public $message = '{{ email }} message.mail_not_unique';
 
     /**
      * User repository.

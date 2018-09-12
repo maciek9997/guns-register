@@ -13,6 +13,9 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class CommentForm extends AbstractType
 {
+
+    //Formularz dodawania komentarzy
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         return $builder

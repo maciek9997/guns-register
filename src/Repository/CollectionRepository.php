@@ -30,6 +30,8 @@ class CollectionRepository
         $this->db = $db;
     }
 
+    //Dodawanie danej broni do kolekcji danego użytkownika
+
     public function addGun($userId, $gunId)
     {
         $data['user_id'] = $userId;
@@ -37,6 +39,8 @@ class CollectionRepository
 
         $this->db->insert('collections', $data);
    }
+
+   //Wyszukanie broni z kolekcji danego użytkownika
 
     public function findMyGuns($userId)
     {
@@ -50,6 +54,8 @@ class CollectionRepository
 
         return $queryBuilder->execute()->fetchAll();
     }
+
+    //Wyszukanie czy dana broń już jest w kolekcji danego użytkownika
 
     public function findisExist($userId,$gunId)
     {

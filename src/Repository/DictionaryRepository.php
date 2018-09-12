@@ -31,6 +31,8 @@ class DictionaryRepository
         $this->db = $db;
     }
 
+    //Pobiera typy zamków broni z bazy danych
+
     public function getLockTypes()
     {
         $query = 'SELECT name,id FROM `lock_types`';
@@ -39,6 +41,8 @@ class DictionaryRepository
 
         return $statement->fetchAll(\PDO::FETCH_KEY_PAIR);
     }
+
+    //Pobiera typy amunicji broni z bazy danych
 
     public function getAmmuntionTypes()
     {
@@ -49,6 +53,8 @@ class DictionaryRepository
         return $statement->fetchAll(\PDO::FETCH_KEY_PAIR);
     }
 
+    //Pobiera typy kalibru broni z bazy danych
+
     public function getCaliberTypes()
     {
         $query = 'SELECT name,id FROM `caliber_types`';
@@ -57,6 +63,8 @@ class DictionaryRepository
 
         return $statement->fetchAll(\PDO::FETCH_KEY_PAIR);
     }
+
+    //Pobiera typy broni z bazy danych
 
     public function getGunTypes()
     {
@@ -67,6 +75,8 @@ class DictionaryRepository
         return $statement->fetchAll(\PDO::FETCH_KEY_PAIR);
     }
 
+    //Pobiera typy przeładowań broni z bazy danych
+
     public function getReloadTypes()
     {
         $query = 'SELECT name,id FROM `reload_types`';
@@ -75,6 +85,9 @@ class DictionaryRepository
 
         return $statement->fetchAll(\PDO::FETCH_KEY_PAIR);
     }
+
+    //Pobiera wszystkie dane z tabel słownikowych w celu ich odpowiedniego wyświetlenia
+
 
     public function getAllTypes()
     {
@@ -87,6 +100,10 @@ class DictionaryRepository
         ];
     }
 
+    /**
+     * Pobiera wszystkie dane z tabel słownikowych do formularza dodawania broni w celu umozliwienia ich odpowiedniego wyboru
+     * @return array
+     */
     public function getAllTypesForAddForm()
     {
         return [

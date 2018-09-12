@@ -16,10 +16,14 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Validator\Constraints\UniqueEmail;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 
 
 class RegisterForm extends AbstractType
 {
+
+    //Formularz rejestracji
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         return $builder
@@ -42,16 +46,23 @@ class RegisterForm extends AbstractType
                         'repository' => $options['user_repository']
                     ])
                 ],
-                'label' => 'label.email'
+                'label' => 'label.email',
+                'invalid_message' => 'message.mail_not_unique',
             ))
             ->add('phone', TextType::class, array(
                 'constraints' => [
                     new Assert\NotBlank(),
                     new Assert\Regex("/^(\(0\))?[0-9]{9}$/")],
-                'label' => 'label.phone'
+                'label' => 'label.phone',
+                'invalid_message' => 'message.wrong_phone_number',
             ))
-            ->add('password', PasswordType::class, array(
-                'label' => 'label.password_register'
+            ->add('password', RepeatedType::class, array(
+                'type' => PasswordType::class,
+                'options' => array('attr' => array('class' => 'password-field')),
+                'required' => true,
+                'first_options'  => array('label' => 'label.password_register'),
+                'second_options' => array('label' => 'label.password_register_repeat'),
+                'invalid_message' => 'message.passwords_must_match',
             ))
             ->add('submit', SubmitType::class, [
                 'label' => 'action.register',

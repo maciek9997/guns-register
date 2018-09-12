@@ -1,3 +1,5 @@
+{# Szablon pdglądu danej broni dla użytkownika #}
+
 {% extends 'base.html.twig' %}
 
 {% block title %}{{ gun.name }}{% endblock %}
@@ -12,24 +14,24 @@
                     <table class="table table-bordered">
                         <tr>
                             <td>{{ 'label.ammunition_type'|trans }}</td>
-                            <td>{{ dictionary['ammunitionTypes'][gun.ammunition_type] }}</td>
+                            <td>{{ dictionary['ammunitionTypes'][gun.ammunition_type]|trans }}</td>
                         </tr>
                         <tr>
                             <td>{{ 'label.gun_type'|trans }}</td>
-                            <td>{{ dictionary['gunTypes'][gun.gun_type] }}</td>
+                            <td>{{ dictionary['gunTypes'][gun.gun_type]|trans }}</td>
                         </tr>
 
                         <tr>
                             <td>{{ 'label.reload_type'|trans }}</td>
-                            <td>{{ dictionary['reloadTypes'][gun.reload_type] }}</td>
+                            <td>{{ dictionary['reloadTypes'][gun.reload_type]|trans }}</td>
                         </tr>
                         <tr>
                             <td>{{ 'label.lock_type'|trans }}</td>
-                            <td>{{ dictionary['lockTypes'][gun.lock_type] }}</td>
+                            <td>{{ dictionary['lockTypes'][gun.lock_type]|trans }}</td>
                         </tr>
                         <tr>
                             <td>{{ 'label.caliber_type'|trans }}</td>
-                            <td>{{ dictionary['caliberTypes'][gun.caliber_type] }}</td>
+                            <td>{{ dictionary['caliberTypes'][gun.caliber_type]|trans }}</td>
                         </tr>
                         <tr>
                             <td>{{ 'label.is_blackpowder'|trans }}</td>

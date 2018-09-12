@@ -242,6 +242,98 @@
                 <source>title.comments</source>
                 <target>Comments</target>
             </trans-unit>
+            <trans-unit id="label.password_register_repeat">
+                <source>label.password_register_repeat</source>
+                <target>Repeat password</target>
+            </trans-unit>
+            <trans-unit id="rimfire">
+                <source>rimfire</source>
+                <target>rimfire</target>
+            </trans-unit>
+            <trans-unit id="separate-loading">
+                <source>separate-loading</source>
+                <target>separate-loading</target>
+            </trans-unit>
+            <trans-unit id="centerfire">
+                <source>centerfire</source>
+                <target>centerfire</target>
+            </trans-unit>
+            <trans-unit id="short">
+                <source>short</source>
+                <target>short</target>
+            </trans-unit>
+            <trans-unit id="long">
+                <source>long</source>
+                <target>long</target>
+            </trans-unit>
+            <trans-unit id="muzzleloader">
+                <source>muzzleloader</source>
+                <target>muzzleloader</target>
+            </trans-unit>
+             <trans-unit id="breechloader">
+                <source>breechloader</source>
+                <target>breechloader</target>
+            </trans-unit>
+            <trans-unit id="magazine">
+                <source>magazine</source>
+                <target>magazine</target>
+            </trans-unit>
+            <trans-unit id="matchlock">
+                <source>matchlock</source>
+                <target>matchlock</target>
+            </trans-unit>
+            <trans-unit id="wheellock">
+                <source>wheellock</source>
+                <target>wheellock</target>
+            </trans-unit>
+            <trans-unit id="flintlock">
+                <source>flintlock</source>
+                <target>flintlock</target>
+            </trans-unit>
+            <trans-unit id="caplock">
+                <source>caplock</source>
+                <target>caplock</target>
+            </trans-unit>
+            <trans-unit id="pump-action">
+                <source>pump-action</source>
+                <target>pump-action</target>
+            </trans-unit>
+            <trans-unit id="lever-action">
+                <source>lever-action</source>
+                <target>lever-action</target>
+            </trans-unit>
+            <trans-unit id="auto">
+                <source>auto</source>
+                <target>auto</target>
+            </trans-unit>
+            <trans-unit id="semi-auto">
+                <source>semi-auto</source>
+                <target>semi-auto</target>
+            </trans-unit>
+            <trans-unit id="bolt-action">
+                <source>bolt-action</source>
+                <target>bolt-action</target>
+            </trans-unit>
+            <trans-unit id="one-shot">
+                <source>one-shot</source>
+                <target>one-shot</target>
+            </trans-unit>
+            <trans-unit id="break-action">
+                <source>break-action</source>
+                <target>break-action</target>
+            </trans-unit>
+            <trans-unit id="revolver">
+                <source>revolver</source>
+                <target>revolver</target>
+            </trans-unit>
+            <trans-unit id="nonstandard/different">
+                <source>nonstandard/different</source>
+                <target>nonstandard/different</target>
+            </trans-unit>
+            <trans-unit id="error.bad_credentials">
+                <source>error.bad_credentials</source>
+                <target>Wrong email or password</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

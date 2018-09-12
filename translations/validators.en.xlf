@@ -2,7 +2,18 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
     <file source-language="en" datatype="plaintext" original="file.ext">
         <body>
-
+             <trans-unit id="{{ email }} message.mail_not_unique">
+                <source>{{ email }} message.mail_not_unique</source>
+                <target>{{ email }} is already in use. Please use other one.</target>
+            </trans-unit>
+            <trans-unit id="This value is not valid.">
+                <source>This value is not valid.</source>
+                <target>This field must contain only 9 numbers without white spaces.</target>
+            </trans-unit>
+            <trans-unit id="message.passwords_must_match">
+                <source>message.passwords_must_match</source>
+                <target>Passwords do not match. Please ensure they are the same.</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

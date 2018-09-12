@@ -30,6 +30,8 @@ class CommentsRepository
         $this->db = $db;
     }
 
+    //Dodanie komentarza przez danego użytkownika o danej broni
+
     public function addComment($userId, $gunId, $formData)
     {
         $data = [];
@@ -39,6 +41,8 @@ class CommentsRepository
 
         $this->db->insert('comments', $data);
    }
+
+   //Wyświetlenie komentarzy odnośnie danej broni
 
     public function findComments($gunId)
     {

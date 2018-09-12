@@ -1,16 +1,10 @@
 <?php
-/**
- * Hello controller.
- *
- * @copyright (c) 2016 Tomasz Chojna
- * @link http://epi.chojna.info.pl
- */
+
 namespace Controller;
 
 use Silex\Api\ControllerProviderInterface;
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
-use Repository\TagsRepository;
 
 /**
  * Class HomeController
@@ -41,6 +35,9 @@ class HomeController implements ControllerProviderInterface
      *
      * @return string Response
      */
+
+    //Funkcja wyświetlająca stronę główną
+
     public function indexAction(Application $app, Request $request)
     {
         return $app['twig']->render('base.html.twig');

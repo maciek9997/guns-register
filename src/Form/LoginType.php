@@ -19,6 +19,9 @@ class LoginType extends AbstractType
     /**
      * {@inheritdoc}
      */
+
+    //Formularz logowania
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add(

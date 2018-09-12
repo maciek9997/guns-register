@@ -30,6 +30,8 @@ class GunsRepository
         $this->db = $db;
     }
 
+    //Wyświetlenie listy wszystkich broni
+
     public function findAllGuns()
     {
         $queryBuilder = $this->db->createQueryBuilder();
@@ -37,6 +39,8 @@ class GunsRepository
 
         return $queryBuilder->execute()->fetchAll();
    }
+
+   //Wyświetlenie broni o danym id
 
     public function findGunById($id)
     {
@@ -49,6 +53,8 @@ class GunsRepository
 
         return $queryBuilder->execute()->fetch();
     }
+
+    //Usunięcie broni o danym id
 
     public function deleteGunById($id)
     {

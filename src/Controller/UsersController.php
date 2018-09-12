@@ -35,6 +35,9 @@ class UsersController implements ControllerProviderInterface
      *
      * @return string Response
      */
+
+    //Funkcja wyświetlająca listę użytkowników
+
     public function indexAction(Application $app, Request $request)
     {
         $usersRepository = new UserRepository($app['db']);
@@ -42,6 +45,8 @@ class UsersController implements ControllerProviderInterface
 
         return $app['twig']->render('users/list.html.twig', array('users' => $users));
     }
+
+    //Funkcja wyświetlająca kolekcję danego użytkownika
 
     public function collectionAction(Application $app, Request $request)
     {

@@ -1,10 +1,5 @@
 <?php
-/**
- * Hello controller.
- *
- * @copyright (c) 2016 Tomasz Chojna
- * @link http://epi.chojna.info.pl
- */
+
 namespace Controller;
 
 use Repository\CollectionRepository;
@@ -17,9 +12,7 @@ use Repository\GunsRepository;
 use Repository\DictionaryRepository;
 use Form\CommentForm;
 
-/**
- * Class HomeController
- */
+
 class GunsUserController implements ControllerProviderInterface
 {
     /**
@@ -44,14 +37,8 @@ class GunsUserController implements ControllerProviderInterface
         return $controller;
     }
 
-    /**
-     * Index action.
-     *
-     * @param \Silex\Application                        $app     Silex application
-     * @param \Symfony\Component\HttpFoundation\Request $request Request object
-     *
-     * @return string Response
-     */
+    //Funkcja wyświetlania dostępnej w rejestrze broni
+
     public function listAction(Application $app, Request $request)
     {
         $gunsRepository = new GunsRepository($app['db']);
@@ -59,6 +46,8 @@ class GunsUserController implements ControllerProviderInterface
 
         return $app['twig']->render('user/guns/list.html.twig', array('guns' => $guns));
     }
+
+    //Funkcja podglądu wybranej broni
 
     public function showAction(Application $app, Request $request)
     {
@@ -98,6 +87,8 @@ class GunsUserController implements ControllerProviderInterface
         ));
     }
 
+    //Funkcja dodania broni do kolekcji
+
     public function addAction(Application $app, Request $request)
     {
         $userToken = $app['security.token_storage']->getToken();
@@ -130,6 +121,8 @@ class GunsUserController implements ControllerProviderInterface
             301
         );
     }
+
+    //Funkcja wyświetlająca kolekcję danego użytkownika
 
     public function collectionAction(Application $app, Request $request)
     {

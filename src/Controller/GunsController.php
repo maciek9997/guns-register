@@ -42,6 +42,9 @@ class GunsController implements ControllerProviderInterface
      *
      * @return string Response
      */
+
+    //Funkcja dodawania nowej broni
+
     public function indexAction(Application $app, Request $request)
     {
         $conn = $app['db'];
@@ -78,6 +81,8 @@ class GunsController implements ControllerProviderInterface
         return $app['twig']->render('guns/add.html.twig', array('form' => $form->createView()));
     }
 
+    //Funkcja wyświetlannia listy dostępnych w rejestrze broni
+
     public function listAction(Application $app, Request $request)
     {
         $gunsRepository = new GunsRepository($app['db']);
@@ -85,6 +90,8 @@ class GunsController implements ControllerProviderInterface
 
         return $app['twig']->render('guns/list.html.twig', array('guns' => $guns));
     }
+
+    //Funkcja usuwania broni z rejestru
 
     public function deleteAction(Application $app, Request $request)
     {
@@ -104,6 +111,8 @@ class GunsController implements ControllerProviderInterface
             301
         );
     }
+
+    //Funkcja podglądu broni
 
     public function showAction(Application $app, Request $request)
     {

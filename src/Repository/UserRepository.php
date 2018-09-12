@@ -126,6 +126,8 @@ class UserRepository
         }
     }
 
+    //Odnajduje wszystkich użytkowników
+
     public function findAll()
     {
         $queryBuilder = $this->db->createQueryBuilder();
@@ -133,6 +135,8 @@ class UserRepository
 
         return $queryBuilder->execute()->fetchAll();
     }
+
+    //Znajduje imię użytkownika o podanym id
 
     public function findNameById($id)
     {

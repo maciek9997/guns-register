@@ -1,7 +1,7 @@
 <?php
 /**
  * Auth controller.
- *
+ * Kontroler rejestracji, logowania i wylogowywania
  */
 namespace Controller;
 
@@ -44,6 +44,9 @@ class AuthController implements ControllerProviderInterface
      *
      * @return \Symfony\Component\HttpFoundation\Response HTTP Response
      */
+
+    //Funkcja logowania
+
     public function loginAction(Application $app, Request $request)
     {
         $user = ['login' => $app['session']->get('_security.last_username')];
@@ -65,6 +68,9 @@ class AuthController implements ControllerProviderInterface
      *
      * @return \Symfony\Component\HttpFoundation\Response HTTP Response
      */
+
+    //Funkcja wylogowywania
+
     public function logoutAction(Application $app)
     {
         $app['session']->clear();
@@ -72,6 +78,7 @@ class AuthController implements ControllerProviderInterface
         return $app['twig']->render('auth/logout.html.twig', []);
     }
 
+    //Funkcja rejestracji
 
     public function registerAction(Application $app, Request $request)
     {

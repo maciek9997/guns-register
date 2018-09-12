@@ -242,6 +242,98 @@
                 <source>title.comments</source>
                 <target>Komentarze</target>
             </trans-unit>
+             <trans-unit id="label.password_register_repeat">
+                <source>label.password_register_repeat</source>
+                <target>Powtórz hasło</target>
+            </trans-unit>
+            <trans-unit id="rimfire">
+                <source>rimfire</source>
+                <target>bocznego zapłonu</target>
+            </trans-unit>
+            <trans-unit id="separate-loading">
+                <source>separate-loading</source>
+                <target>rozdzielnego ładowania</target>
+            </trans-unit>
+            <trans-unit id="centerfire">
+                <source>centerfire</source>
+                <target>centralnego zapłonu</target>
+            </trans-unit>
+            <trans-unit id="short">
+                <source>short</source>
+                <target>krótka</target>
+            </trans-unit>
+            <trans-unit id="long">
+                <source>long</source>
+                <target>długa</target>
+            </trans-unit>
+            <trans-unit id="muzzleloader">
+                <source>muzzleloader</source>
+                <target>odprzodowy</target>
+            </trans-unit>
+             <trans-unit id="breechloader">
+                <source>breechloader</source>
+                <target>odtylcowy</target>
+            </trans-unit>
+            <trans-unit id="magazine">
+                <source>magazine</source>
+                <target>magazynek</target>
+            </trans-unit>
+            <trans-unit id="matchlock">
+                <source>matchlock</source>
+                <target>lontowy</target>
+            </trans-unit>
+            <trans-unit id="wheellock">
+                <source>wheellock</source>
+                <target>kołowy</target>
+            </trans-unit>
+            <trans-unit id="flintlock">
+                <source>flintlock</source>
+                <target>skałkowy</target>
+            </trans-unit>
+            <trans-unit id="caplock">
+                <source>caplock</source>
+                <target>kapiszonowy</target>
+            </trans-unit>
+            <trans-unit id="pump-action">
+                <source>pump-action</source>
+                <target>powtarzalny pump-action</target>
+            </trans-unit>
+            <trans-unit id="lever-action">
+                <source>lever-action</source>
+                <target>dźwigniowy</target>
+            </trans-unit>
+            <trans-unit id="auto">
+                <source>auto</source>
+                <target>automatyczny</target>
+            </trans-unit>
+            <trans-unit id="semi-auto">
+                <source>semi-auto</source>
+                <target>samopowtarzalny</target>
+            </trans-unit>
+            <trans-unit id="bolt-action">
+                <source>bolt-action</source>
+                <target>powtarzalny bolt-action (cztero lub dwu-taktowy)</target>
+            </trans-unit>
+            <trans-unit id="one-shot">
+                <source>one-shot</source>
+                <target>jednostrzałowyy</target>
+            </trans-unit>
+            <trans-unit id="break-action">
+                <source>break-action</source>
+                <target>break-action (broń łamana)</target>
+            </trans-unit>
+            <trans-unit id="revolver">
+                <source>revolver</source>
+                <target>rewolver</target>
+            </trans-unit>
+            <trans-unit id="nonstandard/different">
+                <source>nonstandard/different</source>
+                <target>niestandardowy/inny</target>
+            </trans-unit>
+            <trans-unit id="error.bad_credentials">
+                <source>error.bad_credentials</source>
+                <target>Błędny email lub hasło</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

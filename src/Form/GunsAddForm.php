@@ -18,6 +18,8 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 class GunsAddForm extends AbstractType
 {
 
+    //Formularz dodawania broni
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
 
@@ -86,6 +88,8 @@ class GunsAddForm extends AbstractType
                 'label' => 'action.add',
             ]);
     }
+
+    //Pobieranie danych słownikowych do powyższego formularza
 
     public function configureOptions(OptionsResolver\OptionsResolver $resolver)
     {
