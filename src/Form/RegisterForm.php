@@ -18,12 +18,18 @@ use Validator\Constraints\UniqueEmail;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 
-
+/**
+ * Class RegisterForm
+ * @package Form
+ */
 class RegisterForm extends AbstractType
 {
-
-    //Formularz rejestracji
-
+    /**
+     * @param FormBuilderInterface $builder
+     * @param array $options
+     * @return FormBuilderInterface|void
+     * Formularz rejestracji
+     */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         return $builder
@@ -69,6 +75,9 @@ class RegisterForm extends AbstractType
             ]);
     }
 
+    /**
+     * @param OptionsResolver $resolver
+     */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(
@@ -78,6 +87,9 @@ class RegisterForm extends AbstractType
         );
     }
 
+    /**
+     * @return null|string
+     */
     public function getBlockPrefix()
     {
         return 'register_type';

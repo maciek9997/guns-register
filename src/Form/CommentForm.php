@@ -10,12 +10,18 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 
-
+/**
+ * Class CommentForm
+ * @package Form
+ */
 class CommentForm extends AbstractType
 {
-
-    //Formularz dodawania komentarzy
-
+    /**
+     * @param FormBuilderInterface $builder
+     * @param array $options
+     * @return FormBuilderInterface|void
+     * Formularz dodawania komentarzy
+     */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         return $builder
@@ -29,6 +35,9 @@ class CommentForm extends AbstractType
 
     }
 
+    /**
+     * @return null|string
+     */
     public function getBlockPrefix()
     {
         return 'todo_type';

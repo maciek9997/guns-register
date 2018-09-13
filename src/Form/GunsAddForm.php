@@ -14,12 +14,18 @@ use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 
-
+/**
+ * Class GunsAddForm
+ * @package Form
+ */
 class GunsAddForm extends AbstractType
 {
-
-    //Formularz dodawania broni
-
+    /**
+     * @param FormBuilderInterface $builder
+     * @param array $options
+     * @return FormBuilderInterface|void
+     * Formularz dodawania broni
+     */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
 
@@ -89,8 +95,10 @@ class GunsAddForm extends AbstractType
             ]);
     }
 
-    //Pobieranie danych słownikowych do powyższego formularza
-
+    /**
+     * @param OptionsResolver\OptionsResolver $resolver
+     * Pobieranie danych słownikowych do powyższego formularza
+     */
     public function configureOptions(OptionsResolver\OptionsResolver $resolver)
     {
         $resolver->setDefaults([
@@ -98,7 +106,9 @@ class GunsAddForm extends AbstractType
         ]);
     }
 
-
+    /**
+     * @return null|string
+     */
     public function getBlockPrefix()
     {
         return 'register_type';

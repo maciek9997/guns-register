@@ -1,7 +1,4 @@
 <?php
-/**
- * Login form.
- */
 
 namespace Form;
 
@@ -14,16 +11,16 @@ use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 
 
 /**
- * Class LoginType.
+ * Class ChangePasswordForm
+ * @package Form
  */
 class ChangePasswordForm extends AbstractType
 {
     /**
-     * {@inheritdoc}
+     * @param FormBuilderInterface $builder
+     * @param array $options
+     * Formularz logowania
      */
-
-    //Formularz logowania
-
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
@@ -31,14 +28,14 @@ class ChangePasswordForm extends AbstractType
                 'type' => PasswordType::class,
                 'options' => array('attr' => array('class' => 'password-field')),
                 'required' => true,
-                'first_options'  => array('label' => 'label.password_register'),
-                'second_options' => array('label' => 'label.password_register_repeat'),
+                'first_options'  => array('label' => 'label.new_password'),
+                'second_options' => array('label' => 'label.new_password_repeat'),
                 'invalid_message' => 'message.passwords_must_match',
             ));
     }
 
     /**
-     * {@inheritdoc}
+     * @return null|string
      */
     public function getBlockPrefix()
     {

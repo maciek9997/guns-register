@@ -10,6 +10,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Service\FileUploader;
 use Repository\GunsRepository;
 
+/**
+ * Class GunsController
+ * @package Controller
+ */
 class GunsController implements ControllerProviderInterface
 {
     /**
@@ -41,10 +45,8 @@ class GunsController implements ControllerProviderInterface
      * @param \Symfony\Component\HttpFoundation\Request $request Request object
      *
      * @return string Response
+     * Funkcja dodawania nowej broni
      */
-
-    //Funkcja dodawania nowej broni
-
     public function indexAction(Application $app, Request $request)
     {
         $conn = $app['db'];
@@ -81,8 +83,12 @@ class GunsController implements ControllerProviderInterface
         return $app['twig']->render('guns/add.html.twig', array('form' => $form->createView()));
     }
 
-    //Funkcja wyświetlannia listy dostępnych w rejestrze broni
-
+    /**
+     * Funkcja wyświetlannia listy dostępnych w rejestrze broni
+     * @param Application $app
+     * @param Request $request
+     * @return mixed
+     */
     public function listAction(Application $app, Request $request)
     {
         $gunsRepository = new GunsRepository($app['db']);
@@ -91,8 +97,12 @@ class GunsController implements ControllerProviderInterface
         return $app['twig']->render('guns/list.html.twig', array('guns' => $guns));
     }
 
-    //Funkcja usuwania broni z rejestru
-
+    /**
+     * @param Application $app
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * Funkcja usuwania broni z rejestru
+     */
     public function deleteAction(Application $app, Request $request)
     {
         $gunsRepository = new GunsRepository($app['db']);
@@ -112,8 +122,12 @@ class GunsController implements ControllerProviderInterface
         );
     }
 
-    //Funkcja podglądu broni
-
+    /**
+     * @param Application $app
+     * @param Request $request
+     * @return mixed
+     * Funkcja podglądu broni
+     */
     public function showAction(Application $app, Request $request)
     {
         $gunsRepository = new GunsRepository($app['db']);

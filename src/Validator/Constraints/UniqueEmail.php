@@ -1,17 +1,16 @@
 <?php
 /**
- * Unique Tag constraint.
+ * Unique Email constraint.
  */
 namespace Validator\Constraints;
 
 use Symfony\Component\Validator\Constraint;
 
 /**
- * Class UniqueTag.
+ * Class UniqueEmail
+ * @package Validator\Constraints
+ * Klasa Constraints walidatora unikalności adresu email
  */
-
-//Klasa Constraints walidatora unikalności adresu email
-
 class UniqueEmail extends Constraint
 {
     /**
@@ -19,7 +18,6 @@ class UniqueEmail extends Constraint
      *
      * @var string $message
      */
-
     public $message = '{{ email }} message.mail_not_unique';
 
     /**

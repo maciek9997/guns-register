@@ -12,7 +12,10 @@ use Repository\GunsRepository;
 use Repository\DictionaryRepository;
 use Form\CommentForm;
 
-
+/**
+ * Class GunsUserController
+ * @package Controller
+ */
 class GunsUserController implements ControllerProviderInterface
 {
     /**
@@ -39,8 +42,12 @@ class GunsUserController implements ControllerProviderInterface
         return $controller;
     }
 
-    //Funkcja wyświetlania dostępnej w rejestrze broni
-
+    /**
+     * @param Application $app
+     * @param Request $request
+     * @return mixed
+     * Funkcja wyświetlania dostępnej w rejestrze broni
+     */
     public function listAction(Application $app, Request $request)
     {
         $gunsRepository = new GunsRepository($app['db']);
@@ -49,8 +56,13 @@ class GunsUserController implements ControllerProviderInterface
         return $app['twig']->render('user/guns/list.html.twig', array('guns' => $guns));
     }
 
-    //Funkcja podglądu wybranej broni
-
+    /**
+     * @param Application $app
+     * @param Request $request
+     * @return mixed
+     * @throws \Doctrine\DBAL\DBALException
+     * Funkcja podglądu wybranej broni
+     */
     public function showAction(Application $app, Request $request)
     {
         $gunsRepository = new GunsRepository($app['db']);
@@ -89,8 +101,13 @@ class GunsUserController implements ControllerProviderInterface
         ));
     }
 
-    //Funkcja dodania broni do kolekcji
-
+    /**
+     * @param Application $app
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @throws \Doctrine\DBAL\DBALException
+     * Funkcja dodania broni do kolekcji
+     */
     public function addAction(Application $app, Request $request)
     {
         $userToken = $app['security.token_storage']->getToken();
@@ -124,8 +141,14 @@ class GunsUserController implements ControllerProviderInterface
         );
     }
 
-    //Funkcja wyświetlająca kolekcję danego użytkownika
 
+    /**
+     * @param Application $app
+     * @param Request $request
+     * @return mixed
+     * @throws \Doctrine\DBAL\DBALException
+     * Funkcja wyświetlająca kolekcję danego użytkownika
+     */
     public function collectionAction(Application $app, Request $request)
     {
         $userToken = $app['security.token_storage']->getToken();
@@ -137,6 +160,13 @@ class GunsUserController implements ControllerProviderInterface
         return $app['twig']->render('user/guns/collection.html.twig', array('guns' => $guns));
     }
 
+    /**
+     * @param Application $app
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @throws \Doctrine\DBAL\DBALException
+     * Funkcja usuwająca daną broń z kolekcji danego użytkownika
+     */
     public function deleteAction(Application $app, Request $request)
     {
         $userToken = $app['security.token_storage']->getToken();

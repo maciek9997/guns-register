@@ -1,7 +1,4 @@
 <?php
-/**
- * User repository
- */
 
 namespace Repository;
 
@@ -9,7 +6,8 @@ use Doctrine\DBAL\Connection;
 
 
 /**
- * Class UserRepository.
+ * Class GunsRepository
+ * @package Repository
  */
 class GunsRepository
 {
@@ -21,17 +19,18 @@ class GunsRepository
     protected $db;
 
     /**
-     * TagRepository constructor.
-     *
-     * @param \Doctrine\DBAL\Connection $db
+     * GunsRepository constructor.
+     * @param Connection $db
      */
     public function __construct(Connection $db)
     {
         $this->db = $db;
     }
 
-    //Wyświetlenie listy wszystkich broni
-
+    /**
+     * @return array
+     * Wyświetlenie listy wszystkich broni
+     */
     public function findAllGuns()
     {
         $queryBuilder = $this->db->createQueryBuilder();
@@ -40,8 +39,11 @@ class GunsRepository
         return $queryBuilder->execute()->fetchAll();
    }
 
-   //Wyświetlenie broni o danym id
-
+    /**
+     * @param $id
+     * @return mixed
+     * Wyświetlenie broni o danym id
+     */
     public function findGunById($id)
     {
         $queryBuilder = $this->db->createQueryBuilder();
@@ -54,8 +56,11 @@ class GunsRepository
         return $queryBuilder->execute()->fetch();
     }
 
-    //Usunięcie broni o danym id
-
+    /**
+     * @param $id
+     * @return \Doctrine\DBAL\Driver\Statement|int
+     * Usunięcie broni o danym id
+     */
     public function deleteGunById($id)
     {
         $queryBuilder = $this->db->createQueryBuilder();

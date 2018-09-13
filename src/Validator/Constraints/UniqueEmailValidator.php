@@ -8,15 +8,15 @@ use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
 
 /**
- * Class UniqueEmailValidator.
+ * Class UniqueEmailValidator
+ * @package Validator\Constraints
+ * Klasa Validator walidatora unikalności adresu email
  */
-
-//Klasa Validator walidatora unikalności adresu email
-
 class UniqueEmailValidator extends ConstraintValidator
 {
     /**
-     * {@inheritdoc}
+     * @param mixed $value
+     * @param Constraint $constraint
      */
     public function validate($value, Constraint $constraint)
     {

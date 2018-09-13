@@ -20,7 +20,11 @@ use Repository\UserRepository;
 class AuthController implements ControllerProviderInterface
 {
     /**
-     * {@inheritdoc}
+     * Routing settings.
+     *
+     * @param \Silex\Application $app Silex application
+     *
+     * @return \Silex\ControllerCollection Result
      */
     public function connect(Application $app)
     {
@@ -47,10 +51,8 @@ class AuthController implements ControllerProviderInterface
      * @param \Symfony\Component\HttpFoundation\Request $request HTTP Request
      *
      * @return \Symfony\Component\HttpFoundation\Response HTTP Response
+     * Funkcja logowania
      */
-
-    //Funkcja logowania
-
     public function loginAction(Application $app, Request $request)
     {
         $user = ['login' => $app['session']->get('_security.last_username')];
@@ -71,10 +73,8 @@ class AuthController implements ControllerProviderInterface
      * @param \Silex\Application $app Silex application
      *
      * @return \Symfony\Component\HttpFoundation\Response HTTP Response
+     * Funkcja wylogowywania
      */
-
-    //Funkcja wylogowywania
-
     public function logoutAction(Application $app)
     {
         $app['session']->clear();
@@ -82,8 +82,12 @@ class AuthController implements ControllerProviderInterface
         return $app['twig']->render('auth/logout.html.twig', []);
     }
 
-    //Funkcja rejestracji
-
+    /**
+     * @param Application $app
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * Funkcja rejestracji
+     */
     public function registerAction(Application $app, Request $request)
     {
         $form = $app['form.factory']->createBuilder(
@@ -120,6 +124,13 @@ class AuthController implements ControllerProviderInterface
         return $app['twig']->render('auth/register.html.twig', array('form' => $form->createView()));
     }
 
+    /**
+     * @param Application $app
+     * @param Request $request
+     * @return mixed
+     * @throws \Doctrine\DBAL\DBALException
+     * Funkcja zmiany hasła
+     */
     public function changePasswordAction(Application $app, Request $request)
     {
         $form = $app['form.factory']->createBuilder(ChangePasswordForm::class)->getForm();

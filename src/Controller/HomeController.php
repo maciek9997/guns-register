@@ -34,10 +34,8 @@ class HomeController implements ControllerProviderInterface
      * @param \Symfony\Component\HttpFoundation\Request $request Request object
      *
      * @return string Response
+     * Funkcja wyświetlająca stronę główną
      */
-
-    //Funkcja wyświetlająca stronę główną
-
     public function indexAction(Application $app, Request $request)
     {
         return $app['twig']->render('base.html.twig');

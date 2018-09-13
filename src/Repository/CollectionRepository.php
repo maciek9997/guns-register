@@ -1,7 +1,4 @@
 <?php
-/**
- * User repository
- */
 
 namespace Repository;
 
@@ -9,7 +6,8 @@ use Doctrine\DBAL\Connection;
 
 
 /**
- * Class UserRepository.
+ * Class CollectionRepository
+ * @package Repository
  */
 class CollectionRepository
 {
@@ -21,17 +19,19 @@ class CollectionRepository
     protected $db;
 
     /**
-     * TagRepository constructor.
-     *
-     * @param \Doctrine\DBAL\Connection $db
+     * CollectionRepository constructor.
+     * @param Connection $db
      */
     public function __construct(Connection $db)
     {
         $this->db = $db;
     }
 
-    //Dodawanie danej broni do kolekcji danego użytkownika
-
+    /**
+     * @param $userId
+     * @param $gunId
+     * Dodawanie danej broni do kolekcji danego użytkownika
+     */
     public function addGun($userId, $gunId)
     {
         $data['user_id'] = $userId;
@@ -40,8 +40,11 @@ class CollectionRepository
         $this->db->insert('collections', $data);
    }
 
-   //Wyszukanie broni z kolekcji danego użytkownika
-
+    /**
+     * @param $userId
+     * @return array
+     * Wyszukanie broni z kolekcji danego użytkownika
+     */
     public function findMyGuns($userId)
     {
         $queryBuilder = $this->db->createQueryBuilder();
@@ -55,8 +58,12 @@ class CollectionRepository
         return $queryBuilder->execute()->fetchAll();
     }
 
-    //Wyszukanie czy dana broń już jest w kolekcji danego użytkownika
-
+    /**
+     * @param $userId
+     * @param $gunId
+     * @return mixed
+     * Wyszukanie czy dana broń już jest w kolekcji danego użytkownika
+     */
     public function findisExist($userId,$gunId)
     {
         $queryBuilder = $this->db->createQueryBuilder();
@@ -71,6 +78,12 @@ class CollectionRepository
         return $queryBuilder->execute()->fetch();
     }
 
+    /**
+     * @param $id
+     * @param $userId
+     * @return \Doctrine\DBAL\Driver\Statement|int
+     * Usuwanie danej broni z kolekcji użytkownika
+     */
     public function deleteGun($id, $userId)
     {
         $queryBuilder = $this->db->createQueryBuilder();

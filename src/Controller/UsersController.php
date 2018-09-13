@@ -8,6 +8,10 @@ use Silex\Api\ControllerProviderInterface;
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
 
+/**
+ * Class UsersController
+ * @package Controller
+ */
 class UsersController implements ControllerProviderInterface
 {
     /**
@@ -34,10 +38,8 @@ class UsersController implements ControllerProviderInterface
      * @param \Symfony\Component\HttpFoundation\Request $request Request object
      *
      * @return string Response
+     * Funkcja wyświetlająca listę użytkowników
      */
-
-    //Funkcja wyświetlająca listę użytkowników
-
     public function indexAction(Application $app, Request $request)
     {
         $usersRepository = new UserRepository($app['db']);
@@ -46,8 +48,12 @@ class UsersController implements ControllerProviderInterface
         return $app['twig']->render('users/list.html.twig', array('users' => $users));
     }
 
-    //Funkcja wyświetlająca kolekcję danego użytkownika
-
+    /**
+     * @param Application $app
+     * @param Request $request
+     * @return mixed
+     * Funkcja wyświetlająca kolekcję danego użytkownika
+     */
     public function collectionAction(Application $app, Request $request)
     {
         $gunsRepository = new CollectionRepository($app['db']);

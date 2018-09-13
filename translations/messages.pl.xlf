@@ -334,6 +334,30 @@
                 <source>error.bad_credentials</source>
                 <target>Błędny email lub hasło</target>
             </trans-unit>
+            <trans-unit id="title.auth_change_password">
+                <source>title.auth_change_password</source>
+                <target>Zmiana hasła</target>
+            </trans-unit>
+            <trans-unit id="menu.change_password">
+                <source>menu.change_password</source>
+                <target>Zmiana hasła</target>
+            </trans-unit>
+            <trans-unit id="action.change_password">
+                <source>action.change_password</source>
+                <target>Zmień</target>
+            </trans-unit>
+            <trans-unit id="label.new_password">
+                <source>label.new_password</source>
+                <target>Nowe hasło</target>
+            </trans-unit>
+            <trans-unit id="label.new_password_repeat">
+                <source>label.new_password_repeat</source>
+                <target>Powtórz nowe hasło</target>
+            </trans-unit>
+            <trans-unit id="message.change_password_success">
+                <source>message.change_password_success</source>
+                <target>Hasło zmienione pomyślnie</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

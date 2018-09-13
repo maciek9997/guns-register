@@ -22,9 +22,8 @@ class UserRepository
     protected $db;
 
     /**
-     * TagRepository constructor.
-     *
-     * @param \Doctrine\DBAL\Connection $db
+     * UserRepository constructor.
+     * @param Connection $db
      */
     public function __construct(Connection $db)
     {
@@ -126,8 +125,10 @@ class UserRepository
         }
     }
 
-    //Odnajduje wszystkich użytkowników
-
+    /**
+     * @return array
+     * Odnajduje wszystkich użytkowników
+     */
     public function findAll()
     {
         $queryBuilder = $this->db->createQueryBuilder();
@@ -136,8 +137,11 @@ class UserRepository
         return $queryBuilder->execute()->fetchAll();
     }
 
-    //Znajduje imię użytkownika o podanym id
-
+    /**
+     * @param $id
+     * @return mixed
+     * Znajduje imię użytkownika o podanym id
+     */
     public function findNameById($id)
     {
         $queryBuilder = $this->db->createQueryBuilder();

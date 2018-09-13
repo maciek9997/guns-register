@@ -27,13 +27,19 @@ $app->error(function (\Exception $e, Request $request, $code) use ($app) {
     return new Response($app['twig']->resolveTemplate($templates)->render(array('code' => $code)), $code);
 });
 
-//ALL
+/**
+ * ALL
+ */
 $app->mount('/auth', new AuthController());
 
-//ADMIN
+/**
+ * ADMIN
+ */
 $app->mount('/admin/guns', new GunsController());
 $app->mount('/admin/users', new UsersController());
 
-//USER
+/**
+ * USER
+ */
 $app->mount('/user/guns', new GunsUserController());
 

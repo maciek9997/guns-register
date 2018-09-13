@@ -1,7 +1,4 @@
 <?php
-/**
- * User repository
- */
 
 namespace Repository;
 
@@ -10,7 +7,8 @@ use Doctrine\DBAL\DBALException;
 use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
 
 /**
- * Class UserRepository.
+ * Class DictionaryRepository
+ * @package Repository
  */
 class DictionaryRepository
 {
@@ -22,17 +20,19 @@ class DictionaryRepository
     protected $db;
 
     /**
-     * TagRepository constructor.
-     *
-     * @param \Doctrine\DBAL\Connection $db
+     * DictionaryRepository constructor.
+     * @param Connection $db
      */
     public function __construct(Connection $db)
     {
         $this->db = $db;
     }
 
-    //Pobiera typy zamków broni z bazy danych
-
+    /**
+     * @return array
+     * @throws DBALException
+     * Pobiera typy zamków broni z bazy danych
+     */
     public function getLockTypes()
     {
         $query = 'SELECT name,id FROM `lock_types`';
@@ -42,8 +42,11 @@ class DictionaryRepository
         return $statement->fetchAll(\PDO::FETCH_KEY_PAIR);
     }
 
-    //Pobiera typy amunicji broni z bazy danych
-
+    /**
+     * @return array
+     * @throws DBALException
+     * Pobiera typy amunicji broni z bazy danych
+     */
     public function getAmmuntionTypes()
     {
         $query = 'SELECT name,id FROM `ammunition_types`';
@@ -53,8 +56,11 @@ class DictionaryRepository
         return $statement->fetchAll(\PDO::FETCH_KEY_PAIR);
     }
 
-    //Pobiera typy kalibru broni z bazy danych
-
+    /**
+     * @return array
+     * @throws DBALException
+     * Pobiera typy kalibru broni z bazy danych
+     */
     public function getCaliberTypes()
     {
         $query = 'SELECT name,id FROM `caliber_types`';
@@ -64,8 +70,11 @@ class DictionaryRepository
         return $statement->fetchAll(\PDO::FETCH_KEY_PAIR);
     }
 
-    //Pobiera typy broni z bazy danych
-
+    /**
+     * @return array
+     * @throws DBALException
+     * Pobiera typy broni z bazy danych
+     */
     public function getGunTypes()
     {
         $query = 'SELECT name,id FROM `gun_types`';
@@ -75,8 +84,11 @@ class DictionaryRepository
         return $statement->fetchAll(\PDO::FETCH_KEY_PAIR);
     }
 
-    //Pobiera typy przeładowań broni z bazy danych
-
+    /**
+     * @return array
+     * @throws DBALException
+     * Pobiera typy przeładowań broni z bazy danych
+     */
     public function getReloadTypes()
     {
         $query = 'SELECT name,id FROM `reload_types`';
@@ -86,9 +98,11 @@ class DictionaryRepository
         return $statement->fetchAll(\PDO::FETCH_KEY_PAIR);
     }
 
-    //Pobiera wszystkie dane z tabel słownikowych w celu ich odpowiedniego wyświetlenia
-
-
+    /**
+     * @return array
+     * @throws DBALException
+     * Pobiera wszystkie dane z tabel słownikowych w celu ich odpowiedniego wyświetlenia
+     */
     public function getAllTypes()
     {
         return [
@@ -101,8 +115,9 @@ class DictionaryRepository
     }
 
     /**
-     * Pobiera wszystkie dane z tabel słownikowych do formularza dodawania broni w celu umozliwienia ich odpowiedniego wyboru
      * @return array
+     * @throws DBALException
+     * Pobiera wszystkie dane z tabel słownikowych do formularza dodawania broni w celu umozliwienia ich odpowiedniego wyboru
      */
     public function getAllTypesForAddForm()
     {
