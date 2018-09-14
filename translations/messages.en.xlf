@@ -366,6 +366,10 @@
                 <source>label.nav.prev</source>
                 <target>Previous page</target>
             </trans-unit>
+            <trans-unit id="label.sure">
+                <source>label.sure</source>
+                <target>Delete</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

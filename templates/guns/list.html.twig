@@ -28,7 +28,7 @@
                             <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                         </button>
                     </a>
-                    <a href="{{ url('guns_delete', {id: gun.id}) }}">
+                    <a href="{{ url('guns_delete', {id: gun.id}) }}" onclick="return confirm('{{ 'label.sure' | trans }} {{ gun.name }}?')">
                         <button type="button" class="btn btn-danger">{{ 'action.gun_delete'|trans }}
                             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                         </button>
