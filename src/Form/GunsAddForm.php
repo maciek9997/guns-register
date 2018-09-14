@@ -21,10 +21,10 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 class GunsAddForm extends AbstractType
 {
     /**
+     * Formularz dodawania broni
      * @param FormBuilderInterface $builder
      * @param array $options
      * @return FormBuilderInterface|void
-     * Formularz dodawania broni
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -96,8 +96,8 @@ class GunsAddForm extends AbstractType
     }
 
     /**
-     * @param OptionsResolver\OptionsResolver $resolver
      * Pobieranie danych słownikowych do powyższego formularza
+     * @param OptionsResolver\OptionsResolver $resolver
      */
     public function configureOptions(OptionsResolver\OptionsResolver $resolver)
     {

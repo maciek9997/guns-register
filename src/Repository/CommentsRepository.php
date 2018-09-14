@@ -28,10 +28,10 @@ class CommentsRepository
     }
 
     /**
+     * Dodanie komentarza przez danego użytkownika o danej broni
      * @param $userId
      * @param $gunId
      * @param $formData
-     * Dodanie komentarza przez danego użytkownika o danej broni
      */
     public function addComment($userId, $gunId, $formData)
     {
@@ -44,9 +44,9 @@ class CommentsRepository
    }
 
     /**
+     * Wyświetlenie komentarzy odnośnie danej broni
      * @param $gunId
      * @return array
-     * Wyświetlenie komentarzy odnośnie danej broni
      */
     public function findComments($gunId)
     {

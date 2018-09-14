@@ -28,9 +28,9 @@ class CollectionRepository
     }
 
     /**
+     * Dodawanie danej broni do kolekcji danego użytkownika
      * @param $userId
      * @param $gunId
-     * Dodawanie danej broni do kolekcji danego użytkownika
      */
     public function addGun($userId, $gunId)
     {
@@ -41,9 +41,9 @@ class CollectionRepository
    }
 
     /**
+     * Wyszukanie broni z kolekcji danego użytkownika
      * @param $userId
      * @return array
-     * Wyszukanie broni z kolekcji danego użytkownika
      */
     public function findMyGuns($userId)
     {
@@ -59,10 +59,10 @@ class CollectionRepository
     }
 
     /**
+     * Wyszukanie czy dana broń już jest w kolekcji danego użytkownika
      * @param $userId
      * @param $gunId
      * @return mixed
-     * Wyszukanie czy dana broń już jest w kolekcji danego użytkownika
      */
     public function findisExist($userId,$gunId)
     {
@@ -79,10 +79,10 @@ class CollectionRepository
     }
 
     /**
+     * Usuwanie danej broni z kolekcji użytkownika
      * @param $id
      * @param $userId
      * @return \Doctrine\DBAL\Driver\Statement|int
-     * Usuwanie danej broni z kolekcji użytkownika
      */
     public function deleteGun($id, $userId)
     {

@@ -8,8 +8,8 @@ use Symfony\Component\Validator\Constraint;
 
 /**
  * Class UniqueEmail
- * @package Validator\Constraints
  * Klasa Constraints walidatora unikalności adresu email
+ * @package Validator\Constraints
  */
 class UniqueEmail extends Constraint
 {

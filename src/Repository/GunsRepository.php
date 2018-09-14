@@ -11,6 +11,9 @@ use Doctrine\DBAL\Connection;
  */
 class GunsRepository
 {
+
+    const NUM_ITEMS = 10;
+
     /**
      * Doctrine DBAL connection.
      *
@@ -28,21 +31,33 @@ class GunsRepository
     }
 
     /**
-     * @return array
      * Wyświetlenie listy wszystkich broni
+     * @param int $page
+     * @return array
      */
-    public function findAllGuns()
+    public function findAllGuns($page = 1)
     {
         $queryBuilder = $this->db->createQueryBuilder();
         $queryBuilder->select('*')->from('guns');
 
-        return $queryBuilder->execute()->fetchAll();
+        $queryBuilder->setFirstResult(($page - 1) * static::NUM_ITEMS)
+            ->setMaxResults(static::NUM_ITEMS);
+
+        $pagesNumber = $this->countAllPages();
+
+        $paginator = [
+            'page' => ($page < 1 || $page > $pagesNumber) ? 1 : $page,
+            'max_results' => static::NUM_ITEMS,
+            'pages_number' => $pagesNumber,
+            'data' => $queryBuilder->execute()->fetchAll(),
+        ];
+        return $paginator;
    }
 
     /**
+     * Wyświetlenie broni o danym id
      * @param $id
      * @return mixed
-     * Wyświetlenie broni o danym id
      */
     public function findGunById($id)
     {
@@ -57,9 +72,9 @@ class GunsRepository
     }
 
     /**
+     * Usunięcie broni o danym id
      * @param $id
      * @return \Doctrine\DBAL\Driver\Statement|int
-     * Usunięcie broni o danym id
      */
     public function deleteGunById($id)
     {
@@ -70,5 +85,31 @@ class GunsRepository
             ->setParameter('gunId', $id);
 
         return $queryBuilder->execute();
+    }
+
+    /**
+     * Count all pages.
+     *
+     * @return int Result
+     */
+    protected function countAllPages()
+    {
+        $pagesNumber = 1;
+
+        $queryBuilder = $this->db->createQueryBuilder();
+        $queryBuilder
+            ->select('COUNT(DISTINCT id) AS total_results')
+            ->from('guns')
+            ->setMaxResults(1);
+
+        $result = $queryBuilder->execute()->fetch();
+
+        if ($result) {
+            $pagesNumber =  ceil($result['total_results'] / static::NUM_ITEMS);
+        } else {
+            $pagesNumber = 1;
+        }
+
+        return $pagesNumber;
     }
 }

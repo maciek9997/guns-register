@@ -18,7 +18,7 @@
             <td>{{ 'label.gun_name'|trans }}</td>
             <td>{{ 'label.gun_operations'|trans }}</td>
         </tr>
-        {% for gun in guns %}
+        {% for gun in paginator.data %}
             <tr>
                 <td>{{ gun.id }}</td>
                 <td>{{ gun.name }}</td>
@@ -37,4 +37,8 @@
             </tr>
         {% endfor %}
     </table>
+    {% include 'default/_paginator.html.twig' with {
+        paginator: paginator,
+        route_name: 'guns_list',
+    } %}
 {% endblock %}

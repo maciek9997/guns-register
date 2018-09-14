@@ -16,7 +16,8 @@
             <td>{{ 'label.phone'|trans }}</td>
             <td>{{ 'label.operations'|trans }}</td>
         </tr>
-        {% for user in users %}
+
+        {% for user in paginator.data %}
             <tr>
                 <td>{{ user.id }}</td>
                 <td>{{ user.name }}</td>
@@ -34,4 +35,9 @@
             </tr>
         {% endfor %}
     </table>
+
+    {% include 'default/_paginator.html.twig' with {
+        paginator: paginator,
+        route_name: 'users',
+    } %}
 {% endblock %}

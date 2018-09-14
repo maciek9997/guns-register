@@ -46,12 +46,11 @@ class AuthController implements ControllerProviderInterface
 
     /**
      * Login action.
-     *
+     * Funkcja logowania
      * @param \Silex\Application                        $app     Silex application
      * @param \Symfony\Component\HttpFoundation\Request $request HTTP Request
      *
      * @return \Symfony\Component\HttpFoundation\Response HTTP Response
-     * Funkcja logowania
      */
     public function loginAction(Application $app, Request $request)
     {
@@ -69,11 +68,10 @@ class AuthController implements ControllerProviderInterface
 
     /**
      * Logout action.
-     *
+     * Funkcja wylogowywania
      * @param \Silex\Application $app Silex application
      *
      * @return \Symfony\Component\HttpFoundation\Response HTTP Response
-     * Funkcja wylogowywania
      */
     public function logoutAction(Application $app)
     {
@@ -83,10 +81,10 @@ class AuthController implements ControllerProviderInterface
     }
 
     /**
+     * Funkcja rejestracji
      * @param Application $app
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     * Funkcja rejestracji
      */
     public function registerAction(Application $app, Request $request)
     {
@@ -125,11 +123,11 @@ class AuthController implements ControllerProviderInterface
     }
 
     /**
+     * Funkcja zmiany hasła
      * @param Application $app
      * @param Request $request
      * @return mixed
      * @throws \Doctrine\DBAL\DBALException
-     * Funkcja zmiany hasła
      */
     public function changePasswordAction(Application $app, Request $request)
     {

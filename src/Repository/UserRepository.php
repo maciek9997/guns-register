@@ -14,6 +14,9 @@ use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
  */
 class UserRepository
 {
+
+    const NUM_ITEMS = 10;
+
     /**
      * Doctrine DBAL connection.
      *
@@ -126,21 +129,34 @@ class UserRepository
     }
 
     /**
-     * @return array
      * Odnajduje wszystkich użytkowników
+     * @param int $page
+     * @return array
      */
-    public function findAll()
+    public function findAll($page = 1)
     {
         $queryBuilder = $this->db->createQueryBuilder();
         $queryBuilder->select('*')->from('users')->where('role_id != 1');
 
-        return $queryBuilder->execute()->fetchAll();
+        $queryBuilder->setFirstResult(($page - 1) * static::NUM_ITEMS)
+            ->setMaxResults(static::NUM_ITEMS);
+
+        $pagesNumber = $this->countAllPages();
+
+        $paginator = [
+            'page' => ($page < 1 || $page > $pagesNumber) ? 1 : $page,
+            'max_results' => static::NUM_ITEMS,
+            'pages_number' => $pagesNumber,
+            'data' => $queryBuilder->execute()->fetchAll(),
+        ];
+
+        return $paginator;
     }
 
     /**
+     * Znajduje imię użytkownika o podanym id
      * @param $id
      * @return mixed
-     * Znajduje imię użytkownika o podanym id
      */
     public function findNameById($id)
     {
@@ -152,5 +168,31 @@ class UserRepository
             ->setParameter(':id', $id, \PDO::PARAM_INT);
 
         return $queryBuilder->execute()->fetch();
+    }
+
+    /**
+     * Count all pages.
+     *
+     * @return int Result
+     */
+    protected function countAllPages()
+    {
+        $pagesNumber = 1;
+
+        $queryBuilder = $this->db->createQueryBuilder();
+        $queryBuilder
+            ->select('COUNT(DISTINCT id) AS total_results')
+            ->from('users')
+            ->setMaxResults(1);
+
+        $result = $queryBuilder->execute()->fetch();
+
+        if ($result) {
+            $pagesNumber =  ceil($result['total_results'] / static::NUM_ITEMS);
+        } else {
+            $pagesNumber = 1;
+        }
+
+        return $pagesNumber;
     }
 }

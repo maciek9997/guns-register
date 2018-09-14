@@ -358,6 +358,14 @@
                 <source>message.change_password_success</source>
                 <target>Hasło zmienione pomyślnie</target>
             </trans-unit>
+            <trans-unit id="label.nav.next">
+                <source>label.nav.next</source>
+                <target>Następna strona</target>
+            </trans-unit>
+            <trans-unit id="label.nav.prev">
+                <source>label.nav.prev</source>
+                <target>Poprzednia strona</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

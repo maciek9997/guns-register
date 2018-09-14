@@ -17,9 +17,9 @@ use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 class ChangePasswordForm extends AbstractType
 {
     /**
+     * Formularz zmiany hasła
      * @param FormBuilderInterface $builder
      * @param array $options
-     * Formularz logowania
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {

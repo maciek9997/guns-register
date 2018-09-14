@@ -25,10 +25,10 @@ use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 class RegisterForm extends AbstractType
 {
     /**
+     * Formularz rejestracji
      * @param FormBuilderInterface $builder
      * @param array $options
      * @return FormBuilderInterface|void
-     * Formularz rejestracji
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {

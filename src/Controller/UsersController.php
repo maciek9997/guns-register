@@ -24,7 +24,8 @@ class UsersController implements ControllerProviderInterface
     public function connect(Application $app)
     {
         $controller = $app['controllers_factory'];
-        $controller->match('/', array($this, 'indexAction'))
+        $controller->match('/{page}', array($this, 'indexAction'))
+            ->value('page', 1)
             ->bind('users');
         $controller->match('users_collection/{id}', [$this, 'collectionAction'])
             ->bind('users_collection');
@@ -33,26 +34,24 @@ class UsersController implements ControllerProviderInterface
 
     /**
      * Index action.
-     *
-     * @param \Silex\Application                        $app     Silex application
-     * @param \Symfony\Component\HttpFoundation\Request $request Request object
-     *
-     * @return string Response
      * Funkcja wyświetlająca listę użytkowników
+     * @param Application $app
+     * @param int $page
+     * @return mixed
      */
-    public function indexAction(Application $app, Request $request)
+    public function indexAction(Application $app, $page = 1)
     {
         $usersRepository = new UserRepository($app['db']);
-        $users = $usersRepository->findAll();
+        $users = $usersRepository->findAll($page);
 
-        return $app['twig']->render('users/list.html.twig', array('users' => $users));
+        return $app['twig']->render('users/list.html.twig', array('paginator' => $users));
     }
 
     /**
+     * Funkcja wyświetlająca kolekcję danego użytkownika
      * @param Application $app
      * @param Request $request
      * @return mixed
-     * Funkcja wyświetlająca kolekcję danego użytkownika
      */
     public function collectionAction(Application $app, Request $request)
     {

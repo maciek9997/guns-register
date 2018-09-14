@@ -29,12 +29,11 @@ class HomeController implements ControllerProviderInterface
 
     /**
      * Index action.
-     *
+     * Funkcja wyświetlająca stronę główną
      * @param \Silex\Application                        $app     Silex application
      * @param \Symfony\Component\HttpFoundation\Request $request Request object
      *
      * @return string Response
-     * Funkcja wyświetlająca stronę główną
      */
     public function indexAction(Application $app, Request $request)
     {

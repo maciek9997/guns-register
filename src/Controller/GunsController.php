@@ -28,7 +28,8 @@ class GunsController implements ControllerProviderInterface
         $controller = $app['controllers_factory'];
         $controller->match('/', array($this, 'indexAction'))
             ->bind('guns');
-        $controller->match('list', [$this, 'listAction'])
+        $controller->match('list/{page}', [$this, 'listAction'])
+            ->value('page', 1)
             ->bind('guns_list');
         $controller->match('delete/{id}', [$this, 'deleteAction'])
             ->bind('guns_delete');
@@ -40,12 +41,11 @@ class GunsController implements ControllerProviderInterface
 
     /**
      * Index action.
-     *
+     * Funkcja dodawania nowej broni
      * @param \Silex\Application                        $app     Silex application
      * @param \Symfony\Component\HttpFoundation\Request $request Request object
      *
      * @return string Response
-     * Funkcja dodawania nowej broni
      */
     public function indexAction(Application $app, Request $request)
     {
@@ -86,22 +86,22 @@ class GunsController implements ControllerProviderInterface
     /**
      * Funkcja wyświetlannia listy dostępnych w rejestrze broni
      * @param Application $app
-     * @param Request $request
+     * @param int $page
      * @return mixed
      */
-    public function listAction(Application $app, Request $request)
+    public function listAction(Application $app, $page = 1)
     {
         $gunsRepository = new GunsRepository($app['db']);
-        $guns = $gunsRepository->findAllGuns();
+        $guns = $gunsRepository->findAllGuns($page);
 
-        return $app['twig']->render('guns/list.html.twig', array('guns' => $guns));
+        return $app['twig']->render('guns/list.html.twig', array('paginator' => $guns));
     }
 
     /**
+     * Funkcja usuwania broni z rejestru
      * @param Application $app
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     * Funkcja usuwania broni z rejestru
      */
     public function deleteAction(Application $app, Request $request)
     {
@@ -123,10 +123,10 @@ class GunsController implements ControllerProviderInterface
     }
 
     /**
+     * Funkcja podglądu broni
      * @param Application $app
      * @param Request $request
      * @return mixed
-     * Funkcja podglądu broni
      */
     public function showAction(Application $app, Request $request)
     {

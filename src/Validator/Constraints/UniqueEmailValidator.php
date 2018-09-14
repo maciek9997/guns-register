@@ -8,9 +8,9 @@ use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
 
 /**
+ * Klasa Validator walidatora unikalności adresu email
  * Class UniqueEmailValidator
  * @package Validator\Constraints
- * Klasa Validator walidatora unikalności adresu email
  */
 class UniqueEmailValidator extends ConstraintValidator
 {

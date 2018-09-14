@@ -29,9 +29,9 @@ class DictionaryRepository
     }
 
     /**
+     * Pobiera typy zamków broni z bazy danych
      * @return array
      * @throws DBALException
-     * Pobiera typy zamków broni z bazy danych
      */
     public function getLockTypes()
     {
@@ -43,9 +43,9 @@ class DictionaryRepository
     }
 
     /**
+     * Pobiera typy amunicji broni z bazy danych
      * @return array
      * @throws DBALException
-     * Pobiera typy amunicji broni z bazy danych
      */
     public function getAmmuntionTypes()
     {
@@ -57,9 +57,9 @@ class DictionaryRepository
     }
 
     /**
+     * Pobiera typy kalibru broni z bazy danych
      * @return array
      * @throws DBALException
-     * Pobiera typy kalibru broni z bazy danych
      */
     public function getCaliberTypes()
     {
@@ -71,9 +71,9 @@ class DictionaryRepository
     }
 
     /**
+     * Pobiera typy broni z bazy danych
      * @return array
      * @throws DBALException
-     * Pobiera typy broni z bazy danych
      */
     public function getGunTypes()
     {
@@ -85,9 +85,9 @@ class DictionaryRepository
     }
 
     /**
+     * Pobiera typy przeładowań broni z bazy danych
      * @return array
      * @throws DBALException
-     * Pobiera typy przeładowań broni z bazy danych
      */
     public function getReloadTypes()
     {
@@ -99,9 +99,9 @@ class DictionaryRepository
     }
 
     /**
+     * Pobiera wszystkie dane z tabel słownikowych w celu ich odpowiedniego wyświetlenia
      * @return array
      * @throws DBALException
-     * Pobiera wszystkie dane z tabel słownikowych w celu ich odpowiedniego wyświetlenia
      */
     public function getAllTypes()
     {
@@ -115,9 +115,9 @@ class DictionaryRepository
     }
 
     /**
+     * Pobiera wszystkie dane z tabel słownikowych do formularza dodawania broni w celu umozliwienia ich odpowiedniego wyboru
      * @return array
      * @throws DBALException
-     * Pobiera wszystkie dane z tabel słownikowych do formularza dodawania broni w celu umozliwienia ich odpowiedniego wyboru
      */
     public function getAllTypesForAddForm()
     {
