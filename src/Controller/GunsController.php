@@ -3,6 +3,7 @@
 namespace Controller;
 
 use Form\GunsAddForm;
+use Form\GunsEditForm;
 use Repository\DictionaryRepository;
 use Silex\Api\ControllerProviderInterface;
 use Silex\Application;
@@ -33,6 +34,8 @@ class GunsController implements ControllerProviderInterface
             ->bind('guns_list');
         $controller->match('delete/{id}', [$this, 'deleteAction'])
             ->bind('guns_delete');
+        $controller->match('edit/{id}', [$this, 'editAction'])
+            ->bind('guns_edit');
         $controller->match('show/{id}', [$this, 'showAction'])
             ->bind('guns_show');
 
@@ -84,6 +87,49 @@ class GunsController implements ControllerProviderInterface
     }
 
     /**
+     * Index action.
+     * Funkcja dodawania nowej broni
+     * @param \Silex\Application                        $app     Silex application
+     * @param \Symfony\Component\HttpFoundation\Request $request Request object
+     *
+     * @return string Response
+     */
+    public function editAction(Application $app, Request $request)
+    {
+        $conn = $app['db'];
+        $dictionary = new DictionaryRepository($app['db']);
+        $gunRepository = new GunsRepository($app['db']);
+        $gun = $gunRepository->findGunById($request->get('id'));
+
+        $form = $app['form.factory']->createBuilder(GunsEditForm::class, $gun,[
+            'dictionary' => $dictionary->getAllTypesForAddForm()
+        ])->getForm();
+
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $data = $form->getData();
+            $conn->update('guns',$data, $gun);
+            $app['session']->getFlashBag()->add(
+                'messages',
+                [
+                    'type'    => 'success',
+                    'message' => 'message.gun_add_success',
+                ]
+            );
+
+            return $app->redirect(
+                $app['url_generator']->generate('guns_list'),
+                301
+            );
+        }
+
+        $this->view['form'] = $form->createView();
+
+        return $app['twig']->render('guns/edit.html.twig', array('form' => $form->createView(), 'gun' => $gun));
+    }
+
+    /**
      * Funkcja wyświetlannia listy dostępnych w rejestrze broni
      * @param Application $app
      * @param int $page
@@ -93,7 +139,14 @@ class GunsController implements ControllerProviderInterface
     {
         $gunsRepository = new GunsRepository($app['db']);
         $guns = $gunsRepository->findAllGuns($page);
+        $pages = $gunsRepository->countAllPages();
 
+        if ($page > $pages) {
+            return $app->redirect(
+                $app['url_generator']->generate('guns_list'),
+                301
+            );
+        }
         return $app['twig']->render('guns/list.html.twig', array('paginator' => $guns));
     }
 

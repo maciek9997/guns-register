@@ -53,6 +53,14 @@ class GunsUserController implements ControllerProviderInterface
     {
         $gunsRepository = new GunsRepository($app['db']);
         $guns = $gunsRepository->findAllGuns($page);
+        $pages = $gunsRepository->countAllPages();
+
+        if ($page > $pages) {
+            return $app->redirect(
+                $app['url_generator']->generate('user_guns_list'),
+                301
+            );
+        }
 
         return $app['twig']->render('user/guns/list.html.twig', array('paginator' => $guns));
     }

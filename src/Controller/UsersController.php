@@ -7,6 +7,8 @@ use Repository\CollectionRepository;
 use Silex\Api\ControllerProviderInterface;
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
+use Form\ChangePasswordForm;
+use Form\ChangeRoleForm;
 
 /**
  * Class UsersController
@@ -29,6 +31,11 @@ class UsersController implements ControllerProviderInterface
             ->bind('users');
         $controller->match('users_collection/{id}', [$this, 'collectionAction'])
             ->bind('users_collection');
+        $controller->match('users_password/{id}', [$this, 'passwordAction'])
+            ->bind('users_password');
+        $controller->match('users_role/{id}', [$this, 'roleAction'])
+            ->bind('users_role');
+
         return $controller;
     }
 
@@ -43,6 +50,14 @@ class UsersController implements ControllerProviderInterface
     {
         $usersRepository = new UserRepository($app['db']);
         $users = $usersRepository->findAll($page);
+        $pages = $usersRepository->countAllPages();
+
+        if ($page > $pages) {
+            return $app->redirect(
+                $app['url_generator']->generate('users'),
+                301
+            );
+        }
 
         return $app['twig']->render('users/list.html.twig', array('paginator' => $users));
     }
@@ -61,5 +76,63 @@ class UsersController implements ControllerProviderInterface
         $guns = $gunsRepository->findMyGuns($request->get('id'));
 
         return $app['twig']->render('users/collection.html.twig', array('guns' => $guns, 'user' => $user));
+    }
+
+    public function passwordAction(Application $app, Request $request)
+    {
+        $form = $app['form.factory']->createBuilder(ChangePasswordForm::class)->getForm();
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $data = $form->getData();
+            $pass = $app['security.encoder.bcrypt']->encodePassword($data['password'], '');
+            $conn = $app['db'];
+            $conn->executeUpdate('UPDATE users SET password = ? WHERE id = ?', array($pass, $request->get('id')));
+            $app['session']->getFlashBag()->add(
+                'messages',
+                [
+                    'type'    => 'success',
+                    'message' => 'message.change_password_success',
+                ]
+            );
+        }
+
+        return $app['twig']->render(
+            'users/changePassword.html.twig',
+            [
+                'form' => $form->createView(),
+                'userId' => $request->get('id')
+            ]
+        );
+    }
+
+    public function roleAction(Application $app, Request $request)
+    {
+        $usersRepository = new UserRepository($app['db']);
+        $role = $usersRepository->findRoleById($request->get('id'));
+
+        $form = $app['form.factory']->createBuilder(ChangeRoleForm::class, ['role' => $role['role_id']])->getForm();
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $data = $form->getData();
+            $conn = $app['db'];
+            $conn->executeUpdate('UPDATE users SET role_id = ? WHERE id = ?', array($data['role'], $request->get('id')));
+            $app['session']->getFlashBag()->add(
+                'messages',
+                [
+                    'type'    => 'success',
+                    'message' => 'message.change_role_success',
+                ]
+            );
+        }
+
+        return $app['twig']->render(
+            'users/changeRole.html.twig',
+            [
+                'form' => $form->createView(),
+                'userId' => $request->get('id')
+            ]
+        );
     }
 }

@@ -136,7 +136,7 @@ class UserRepository
     public function findAll($page = 1)
     {
         $queryBuilder = $this->db->createQueryBuilder();
-        $queryBuilder->select('*')->from('users')->where('role_id != 1');
+        $queryBuilder->select('*')->from('users');
 
         $queryBuilder->setFirstResult(($page - 1) * static::NUM_ITEMS)
             ->setMaxResults(static::NUM_ITEMS);
@@ -171,11 +171,28 @@ class UserRepository
     }
 
     /**
+     * Znajduje role użytkownika o podanym id
+     * @param $id
+     * @return mixed
+     */
+    public function findRoleById($id)
+    {
+        $queryBuilder = $this->db->createQueryBuilder();
+        $queryBuilder
+            ->select(['role_id'])
+            ->from('users')
+            ->where('id = :id')
+            ->setParameter(':id', $id, \PDO::PARAM_INT);
+
+        return $queryBuilder->execute()->fetch();
+    }
+
+    /**
      * Count all pages.
      *
      * @return int Result
      */
-    protected function countAllPages()
+    public function countAllPages()
     {
         $pagesNumber = 1;
 

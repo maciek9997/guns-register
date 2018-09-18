@@ -92,7 +92,7 @@ class GunsRepository
      *
      * @return int Result
      */
-    protected function countAllPages()
+    public function countAllPages()
     {
         $pagesNumber = 1;
 
