@@ -12,7 +12,6 @@ use Form\ChangeRoleForm;
 
 /**
  * Class UsersController
- * @package Controller
  */
 class UsersController implements ControllerProviderInterface
 {
@@ -43,7 +42,8 @@ class UsersController implements ControllerProviderInterface
      * Index action.
      * Funkcja wyświetlająca listę użytkowników
      * @param Application $app
-     * @param int $page
+     * @param int         $page
+     *
      * @return mixed
      */
     public function indexAction(Application $app, $page = 1)
@@ -65,7 +65,8 @@ class UsersController implements ControllerProviderInterface
     /**
      * Funkcja wyświetlająca kolekcję danego użytkownika
      * @param Application $app
-     * @param Request $request
+     * @param Request     $request
+     *
      * @return mixed
      */
     public function collectionAction(Application $app, Request $request)
@@ -81,7 +82,8 @@ class UsersController implements ControllerProviderInterface
     /**
      * Funkcja pozwalająca na zmianę hasła użytkownikowi przez administratora
      * @param Application $app
-     * @param Request $request
+     * @param Request     $request
+     *
      * @return mixed
      */
     public function passwordAction(Application $app, Request $request)
@@ -107,7 +109,7 @@ class UsersController implements ControllerProviderInterface
             'users/changePassword.html.twig',
             [
                 'form' => $form->createView(),
-                'userId' => $request->get('id')
+                'userId' => $request->get('id'),
             ]
         );
     }
@@ -115,7 +117,8 @@ class UsersController implements ControllerProviderInterface
     /**
      * Funkcja pozwalająca na zmianę roli użytkownikowi przez administratora
      * @param Application $app
-     * @param Request $request
+     * @param Request     $request
+     *
      * @return mixed
      */
     public function roleAction(Application $app, Request $request)
@@ -143,7 +146,7 @@ class UsersController implements ControllerProviderInterface
             'users/changeRole.html.twig',
             [
                 'form' => $form->createView(),
-                'userId' => $request->get('id')
+                'userId' => $request->get('id'),
             ]
         );
     }

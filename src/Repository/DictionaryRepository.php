@@ -8,7 +8,6 @@ use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
 
 /**
  * Class DictionaryRepository
- * @package Repository
  */
 class DictionaryRepository
 {
@@ -31,6 +30,7 @@ class DictionaryRepository
     /**
      * Pobiera typy zamków broni z bazy danych
      * @return array
+     *
      * @throws DBALException
      */
     public function getLockTypes()
@@ -45,6 +45,7 @@ class DictionaryRepository
     /**
      * Pobiera typy amunicji broni z bazy danych
      * @return array
+     *
      * @throws DBALException
      */
     public function getAmmuntionTypes()
@@ -59,6 +60,7 @@ class DictionaryRepository
     /**
      * Pobiera typy kalibru broni z bazy danych
      * @return array
+     *
      * @throws DBALException
      */
     public function getCaliberTypes()
@@ -73,6 +75,7 @@ class DictionaryRepository
     /**
      * Pobiera typy broni z bazy danych
      * @return array
+     *
      * @throws DBALException
      */
     public function getGunTypes()
@@ -87,6 +90,7 @@ class DictionaryRepository
     /**
      * Pobiera typy przeładowań broni z bazy danych
      * @return array
+     *
      * @throws DBALException
      */
     public function getReloadTypes()
@@ -101,6 +105,7 @@ class DictionaryRepository
     /**
      * Pobiera wszystkie dane z tabel słownikowych w celu ich odpowiedniego wyświetlenia
      * @return array
+     *
      * @throws DBALException
      */
     public function getAllTypes()
@@ -117,6 +122,7 @@ class DictionaryRepository
     /**
      * Pobiera wszystkie dane z tabel słownikowych do formularza dodawania/edycji broni w celu umozliwienia ich odpowiedniego wyboru
      * @return array
+     *
      * @throws DBALException
      */
     public function getAllTypesForAddForm()

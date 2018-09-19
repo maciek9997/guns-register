@@ -14,7 +14,6 @@ use Form\CommentForm;
 
 /**
  * Class GunsUserController
- * @package Controller
  */
 class GunsUserController implements ControllerProviderInterface
 {
@@ -46,7 +45,8 @@ class GunsUserController implements ControllerProviderInterface
     /**
      * Funkcja wyświetlania dostępnej w rejestrze broni
      * @param Application $app
-     * @param int $page
+     * @param int         $page
+     *
      * @return mixed
      */
     public function listAction(Application $app, $page = 1)
@@ -68,8 +68,10 @@ class GunsUserController implements ControllerProviderInterface
     /**
      * Funkcja podglądu wybranej broni
      * @param Application $app
-     * @param Request $request
+     * @param Request     $request
+     *
      * @return mixed
+     *
      * @throws \Doctrine\DBAL\DBALException
      */
     public function showAction(Application $app, Request $request)
@@ -88,7 +90,7 @@ class GunsUserController implements ControllerProviderInterface
             $userToken = $app['security.token_storage']->getToken();
             $userRep = new UserRepository($app['db']);
             $user = $userRep->getUserByLogin($userToken->getUser()->getUserName());
-            $commentsRepository->addComment($user['id'],$request->get('id'),$form->getData());
+            $commentsRepository->addComment($user['id'], $request->get('id'), $form->getData());
 
             $app['session']->getFlashBag()->add(
                 'messages',
@@ -106,15 +108,17 @@ class GunsUserController implements ControllerProviderInterface
             'gun' => $gun,
             'dictionary' => $dictionaryList,
             'form' => $form->createView(),
-            'comments' => $comments
+            'comments' => $comments,
         ));
     }
 
     /**
      * Funkcja dodania broni do kolekcji
      * @param Application $app
-     * @param Request $request
+     * @param Request     $request
+     *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     *
      * @throws \Doctrine\DBAL\DBALException
      */
     public function addAction(Application $app, Request $request)
@@ -153,8 +157,10 @@ class GunsUserController implements ControllerProviderInterface
     /**
      * Funkcja wyświetlająca kolekcję danego użytkownika
      * @param Application $app
-     * @param Request $request
+     * @param Request     $request
+     *
      * @return mixed
+     *
      * @throws \Doctrine\DBAL\DBALException
      */
     public function collectionAction(Application $app, Request $request)
@@ -171,8 +177,10 @@ class GunsUserController implements ControllerProviderInterface
     /**
      * Funkcja usuwająca daną broń z kolekcji danego użytkownika
      * @param Application $app
-     * @param Request $request
+     * @param Request     $request
+     *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     *
      * @throws \Doctrine\DBAL\DBALException
      */
     public function deleteAction(Application $app, Request $request)
@@ -196,6 +204,4 @@ class GunsUserController implements ControllerProviderInterface
             301
         );
     }
-
-
 }

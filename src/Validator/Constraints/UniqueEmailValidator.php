@@ -10,12 +10,11 @@ use Symfony\Component\Validator\ConstraintValidator;
 /**
  * Klasa Validator walidatora unikalności adresu email
  * Class UniqueEmailValidator
- * @package Validator\Constraints
  */
 class UniqueEmailValidator extends ConstraintValidator
 {
     /**
-     * @param mixed $value
+     * @param mixed      $value
      * @param Constraint $constraint
      */
     public function validate($value, Constraint $constraint)

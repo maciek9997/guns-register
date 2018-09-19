@@ -4,10 +4,8 @@ namespace Repository;
 
 use Doctrine\DBAL\Connection;
 
-
 /**
  * Class GunsRepository
- * @package Repository
  */
 class GunsRepository
 {
@@ -33,6 +31,7 @@ class GunsRepository
     /**
      * Wyświetlenie listy wszystkich broni
      * @param int $page
+     *
      * @return array
      */
     public function findAllGuns($page = 1)
@@ -51,12 +50,14 @@ class GunsRepository
             'pages_number' => $pagesNumber,
             'data' => $queryBuilder->execute()->fetchAll(),
         ];
+
         return $paginator;
-   }
+    }
 
     /**
      * Wyświetlenie broni o danym id
      * @param $id
+     *
      * @return mixed
      */
     public function findGunById($id)
@@ -74,6 +75,7 @@ class GunsRepository
     /**
      * Usunięcie broni o danym id
      * @param $id
+     *
      * @return \Doctrine\DBAL\Driver\Statement|int
      */
     public function deleteGunById($id)

@@ -4,10 +4,8 @@ namespace Repository;
 
 use Doctrine\DBAL\Connection;
 
-
 /**
  * Class CommentsRepository
- * @package Repository
  */
 class CommentsRepository
 {
@@ -41,11 +39,12 @@ class CommentsRepository
         $data['comment'] = htmlspecialchars($formData['comment']);
 
         $this->db->insert('comments', $data);
-   }
+    }
 
     /**
      * Wyświetlenie komentarzy odnośnie danej broni
      * @param $gunId
+     *
      * @return array
      */
     public function findComments($gunId)
@@ -60,5 +59,4 @@ class CommentsRepository
 
         return $queryBuilder->execute()->fetchAll();
     }
-
 }

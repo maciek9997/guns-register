@@ -9,7 +9,6 @@ use Symfony\Component\Validator\Constraint;
 /**
  * Class UniqueEmail
  * Klasa Constraints walidatora unikalności adresu email
- * @package Validator\Constraints
  */
 class UniqueEmail extends Constraint
 {
@@ -26,5 +25,4 @@ class UniqueEmail extends Constraint
      * @var null|\Repository\UserRepository $repository
      */
     public $repository = null;
-
 }

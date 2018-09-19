@@ -4,10 +4,8 @@ namespace Repository;
 
 use Doctrine\DBAL\Connection;
 
-
 /**
  * Class CollectionRepository
- * @package Repository
  */
 class CollectionRepository
 {
@@ -38,11 +36,12 @@ class CollectionRepository
         $data['gun_id'] = $gunId;
 
         $this->db->insert('collections', $data);
-   }
+    }
 
     /**
      * Wyszukanie broni z kolekcji danego użytkownika
      * @param $userId
+     *
      * @return array
      */
     public function findMyGuns($userId)
@@ -62,9 +61,10 @@ class CollectionRepository
      * Wyszukanie czy dana broń już jest w kolekcji danego użytkownika
      * @param $userId
      * @param $gunId
+     *
      * @return mixed
      */
-    public function findisExist($userId,$gunId)
+    public function findisExist($userId, $gunId)
     {
         $queryBuilder = $this->db->createQueryBuilder();
         $queryBuilder
@@ -82,6 +82,7 @@ class CollectionRepository
      * Usuwanie danej broni z kolekcji użytkownika
      * @param $id
      * @param $userId
+     *
      * @return \Doctrine\DBAL\Driver\Statement|int
      */
     public function deleteGun($id, $userId)

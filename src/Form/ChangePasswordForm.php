@@ -9,17 +9,15 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 
-
 /**
  * Class ChangePasswordForm
- * @package Form
  */
 class ChangePasswordForm extends AbstractType
 {
     /**
      * Formularz zmiany hasła
      * @param FormBuilderInterface $builder
-     * @param array $options
+     * @param array                $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {

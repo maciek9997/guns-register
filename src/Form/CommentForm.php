@@ -9,17 +9,16 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
-
 /**
  * Class CommentForm
- * @package Form
  */
 class CommentForm extends AbstractType
 {
     /**
      * Formularz dodawania komentarzy
      * @param FormBuilderInterface $builder
-     * @param array $options
+     * @param array                $options
+     *
      * @return FormBuilderInterface|void
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -27,12 +26,11 @@ class CommentForm extends AbstractType
         return $builder
             ->add('comment', TextareaType::class, array(
                 'constraints' => new Assert\NotBlank(),
-                'label' => 'label.comment'
+                'label' => 'label.comment',
             ))
             ->add('submit', SubmitType::class, [
                 'label' => 'action.comment_add',
             ]);
-
     }
 
     /**

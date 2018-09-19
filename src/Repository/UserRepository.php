@@ -37,6 +37,7 @@ class UserRepository
      * Loads user by login.
      *
      * @param string $login User login
+     *
      * @throws UsernameNotFoundException
      * @throws \Doctrine\DBAL\DBALException
      *
@@ -79,6 +80,7 @@ class UserRepository
      * Gets user data by login.
      *
      * @param string $login User login
+     *
      * @throws \Doctrine\DBAL\DBALException
      *
      * @return array Result
@@ -91,6 +93,7 @@ class UserRepository
                 ->from('users', 'u')
                 ->where('u.login = :login')
                 ->setParameter(':login', $login, \PDO::PARAM_STR);
+
             return $queryBuilder->execute()->fetch();
         } catch (DBALException $exception) {
             return [];
@@ -101,6 +104,7 @@ class UserRepository
      * Gets user roles by User ID.
      *
      * @param integer $userId User ID
+     *
      * @throws \Doctrine\DBAL\DBALException
      *
      * @return array Result
@@ -131,6 +135,7 @@ class UserRepository
     /**
      * Odnajduje wszystkich użytkowników
      * @param int $page
+     *
      * @return array
      */
     public function findAll($page = 1)
@@ -156,6 +161,7 @@ class UserRepository
     /**
      * Znajduje imię użytkownika o podanym id
      * @param $id
+     *
      * @return mixed
      */
     public function findNameById($id)
@@ -173,6 +179,7 @@ class UserRepository
     /**
      * Znajduje rolę użytkownika o podanym id
      * @param $id
+     *
      * @return mixed
      */
     public function findRoleById($id)

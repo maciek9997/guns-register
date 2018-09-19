@@ -42,4 +42,3 @@ $app->mount('/admin/users', new UsersController());
  * USER
  */
 $app->mount('/user/guns', new GunsUserController());
-

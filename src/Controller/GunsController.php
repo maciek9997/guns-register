@@ -13,7 +13,6 @@ use Repository\GunsRepository;
 
 /**
  * Class GunsController
- * @package Controller
  */
 class GunsController implements ControllerProviderInterface
 {
@@ -55,8 +54,8 @@ class GunsController implements ControllerProviderInterface
         $conn = $app['db'];
         $dictionary = new DictionaryRepository($app['db']);
 
-        $form = $app['form.factory']->createBuilder(GunsAddForm::class, [],[
-            'dictionary' => $dictionary->getAllTypesForAddForm()
+        $form = $app['form.factory']->createBuilder(GunsAddForm::class, [], [
+            'dictionary' => $dictionary->getAllTypesForAddForm(),
         ])->getForm();
 
         $form->handleRequest($request);
@@ -90,8 +89,10 @@ class GunsController implements ControllerProviderInterface
      * Edit action.
      * Funkcja edytowania broni
      * @param Application $app
-     * @param Request $request
+     * @param Request     $request
+     *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     *
      * @throws \Doctrine\DBAL\DBALException
      */
     public function editAction(Application $app, Request $request)
@@ -101,15 +102,15 @@ class GunsController implements ControllerProviderInterface
         $gunRepository = new GunsRepository($app['db']);
         $gun = $gunRepository->findGunById($request->get('id'));
 
-        $form = $app['form.factory']->createBuilder(GunsEditForm::class, $gun,[
-            'dictionary' => $dictionary->getAllTypesForAddForm()
+        $form = $app['form.factory']->createBuilder(GunsEditForm::class, $gun, [
+            'dictionary' => $dictionary->getAllTypesForAddForm(),
         ])->getForm();
 
         $form->handleRequest($request);
 
         if ($form->isValid()) {
             $data = $form->getData();
-            $conn->update('guns',$data, $gun);
+            $conn->update('guns', $data, $gun);
             $app['session']->getFlashBag()->add(
                 'messages',
                 [
@@ -132,7 +133,8 @@ class GunsController implements ControllerProviderInterface
     /**
      * Funkcja wyświetlannia listy dostępnych w rejestrze broni
      * @param Application $app
-     * @param int $page
+     * @param int         $page
+     *
      * @return mixed
      */
     public function listAction(Application $app, $page = 1)
@@ -147,13 +149,15 @@ class GunsController implements ControllerProviderInterface
                 301
             );
         }
+
         return $app['twig']->render('guns/list.html.twig', array('paginator' => $guns));
     }
 
     /**
      * Funkcja usuwania broni z rejestru
      * @param Application $app
-     * @param Request $request
+     * @param Request     $request
+     *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function deleteAction(Application $app, Request $request)
@@ -178,7 +182,8 @@ class GunsController implements ControllerProviderInterface
     /**
      * Funkcja podglądu broni
      * @param Application $app
-     * @param Request $request
+     * @param Request     $request
+     *
      * @return mixed
      */
     public function showAction(Application $app, Request $request)
@@ -190,8 +195,7 @@ class GunsController implements ControllerProviderInterface
 
         return $app['twig']->render('guns/show.html.twig', array(
             'gun' => $gun,
-            'dictionary' => $dictionaryList
+            'dictionary' => $dictionaryList,
         ));
     }
-
 }

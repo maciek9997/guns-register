@@ -16,14 +16,14 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 /**
  * Class GunsAddForm
- * @package Form
  */
 class GunsAddForm extends AbstractType
 {
     /**
      * Formularz dodawania broni
      * @param FormBuilderInterface $builder
-     * @param array $options
+     * @param array                $options
+     *
      * @return FormBuilderInterface|void
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -32,45 +32,45 @@ class GunsAddForm extends AbstractType
         return $builder
             ->add('name', TextType::class, array(
                 'constraints' => new Assert\NotBlank(),
-                'label' => 'label.gun_name'
+                'label' => 'label.gun_name',
             ))
             ->add('is_blackpowder', ChoiceType::class, array(
                 'required' => true,
                 'choices' => ['choice.negative' => 0, 'choice.positive' => 1],
                 'expanded' => true,
-                'label' => 'label.is_blackpowder'
+                'label' => 'label.is_blackpowder',
             ))
             ->add('ammunition_type', ChoiceType::class, array(
                 'choices' => $options['dictionary']['ammunitionTypes'],
-                'label' => 'label.ammunition_type'
+                'label' => 'label.ammunition_type',
             ))
             ->add('gun_type', ChoiceType::class, array(
                 'choices' => $options['dictionary']['gunTypes'],
                 'label' => 'label.gun_type',
-                'expanded' => true
+                'expanded' => true,
             ))
             ->add('reload_type', ChoiceType::class, array(
                 'choices' => $options['dictionary']['reloadTypes'],
-                'label' => 'label.reload_type'
+                'label' => 'label.reload_type',
             ))
             ->add('lock_type', ChoiceType::class, array(
                 'choices' => $options['dictionary']['lockTypes'],
-                'label' => 'label.lock_type'
+                'label' => 'label.lock_type',
             ))
             ->add('caliber_type', ChoiceType::class, array(
                 'choices' => $options['dictionary']['caliberTypes'],
-                'label' => 'label.caliber_type'
+                'label' => 'label.caliber_type',
             ))
             ->add('permission', ChoiceType::class, array(
                 'required' => true,
                 'choices' => ['choice.negative' => 0, 'choice.positive' => 1],
                 'expanded' => true,
-                'label' => 'label.permission'
+                'label' => 'label.permission',
             ))
-           ->add(
-                'image_name',
-                FileType::class,
-                [
+        ->add(
+            'image_name',
+            FileType::class,
+            [
                     'label' => 'label.photo',
                     'required' => true,
                     'constraints' => [
@@ -89,7 +89,7 @@ class GunsAddForm extends AbstractType
                         ),
                     ],
                 ]
-            )
+        )
             ->add('submit', SubmitType::class, [
                 'label' => 'action.add',
             ]);
@@ -102,7 +102,7 @@ class GunsAddForm extends AbstractType
     public function configureOptions(OptionsResolver\OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'dictionary' => []
+            'dictionary' => [],
         ]);
     }
 

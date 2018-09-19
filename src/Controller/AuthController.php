@@ -13,7 +13,6 @@ use Silex\Api\ControllerProviderInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Repository\UserRepository;
 
-
 /**
  * Class AuthController.
  */
@@ -83,7 +82,8 @@ class AuthController implements ControllerProviderInterface
     /**
      * Funkcja rejestracji
      * @param Application $app
-     * @param Request $request
+     * @param Request     $request
+     *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function registerAction(Application $app, Request $request)
@@ -125,8 +125,10 @@ class AuthController implements ControllerProviderInterface
     /**
      * Funkcja zmiany hasła
      * @param Application $app
-     * @param Request $request
+     * @param Request     $request
+     *
      * @return mixed
+     *
      * @throws \Doctrine\DBAL\DBALException
      */
     public function changePasswordAction(Application $app, Request $request)

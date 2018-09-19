@@ -39,7 +39,4 @@ class HomeController implements ControllerProviderInterface
     {
         return $app['twig']->render('base.html.twig');
     }
-
-
-
 }

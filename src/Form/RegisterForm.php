@@ -20,14 +20,14 @@ use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 
 /**
  * Class RegisterForm
- * @package Form
  */
 class RegisterForm extends AbstractType
 {
     /**
      * Formularz rejestracji
      * @param FormBuilderInterface $builder
-     * @param array $options
+     * @param array                $options
+     *
      * @return FormBuilderInterface|void
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -35,22 +35,22 @@ class RegisterForm extends AbstractType
         return $builder
             ->add('name', TextType::class, array(
                 'constraints' => new Assert\NotBlank(),
-                'label' => 'label.name'
+                'label' => 'label.name',
             ))
             ->add('surname', TextType::class, array(
                 'constraints' => new Assert\NotBlank(),
-                'label' => 'label.surname'
+                'label' => 'label.surname',
             ))
             ->add('address', TextType::class, array(
                 'constraints' => new Assert\NotBlank(),
-                'label' => 'label.address'
+                'label' => 'label.address',
             ))
             ->add('login', TextType::class, array(
                 'constraints' => [
                     new Assert\Email(),
                     new UniqueEmail([
-                        'repository' => $options['user_repository']
-                    ])
+                        'repository' => $options['user_repository'],
+                    ]),
                 ],
                 'label' => 'label.email',
                 'invalid_message' => 'message.mail_not_unique',
@@ -58,7 +58,7 @@ class RegisterForm extends AbstractType
             ->add('phone', TextType::class, array(
                 'constraints' => [
                     new Assert\NotBlank(),
-                    new Assert\Regex("/^(\(0\))?[0-9]{9}$/")],
+                    new Assert\Regex("/^(\(0\))?[0-9]{9}$/"), ],
                 'label' => 'label.phone',
                 'invalid_message' => 'message.wrong_phone_number',
             ))
