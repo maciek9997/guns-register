@@ -8,13 +8,13 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 
 /**
- * Class ChangePasswordForm
+ * Class ChangeRoleForm
  * @package Form
  */
 class ChangeRoleForm extends AbstractType
 {
     /**
-     * Formularz zmiany hasła
+     * Formularz zmiany roli
      * @param FormBuilderInterface $builder
      * @param array $options
      */
@@ -22,7 +22,7 @@ class ChangeRoleForm extends AbstractType
     {
         $builder
             ->add('role', ChoiceType::class, array(
-                'choices' => ['Admin' => 1, 'User' => 2],
+                'choices' => ['label.choice_admin' => 1, 'label.choice_user' => 2],
                 'label' => 'label.role'
             ));
     }

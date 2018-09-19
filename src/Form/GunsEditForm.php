@@ -15,13 +15,13 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 /**
- * Class GunsAddForm
+ * Class GunsEditForm
  * @package Form
  */
 class GunsEditForm extends AbstractType
 {
     /**
-     * Formularz dodawania broni
+     * Formularz edytowania broni
      * @param FormBuilderInterface $builder
      * @param array $options
      * @return FormBuilderInterface|void
@@ -68,7 +68,7 @@ class GunsEditForm extends AbstractType
                 'label' => 'label.permission'
             ))
             ->add('submit', SubmitType::class, [
-                'label' => 'action.add',
+                'label' => 'action.edit',
             ]);
     }
 

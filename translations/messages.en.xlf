@@ -370,6 +370,50 @@
                 <source>label.sure</source>
                 <target>Delete</target>
             </trans-unit>
+            <trans-unit id="action.gun_edit">
+                <source>action.gun_edit</source>
+                <target>Edit</target>
+            </trans-unit>
+            <trans-unit id="title.gun_edit">
+                <source>title.gun_edit</source>
+                <target>Edit gun: </target>
+            </trans-unit>
+            <trans-unit id="message.gun_edit_success">
+                <source>message.gun_edit_success</source>
+                <target>Gun edited successfully</target>
+            </trans-unit>
+            <trans-unit id="action.edit">
+                <source>action.edit</source>
+                <target>Edit</target>
+            </trans-unit>
+            <trans-unit id="action.change_role">
+                <source>action.change_role</source>
+                <target>Change role</target>
+            </trans-unit>
+            <trans-unit id="message.change_role_success">
+                <source>message.change_role_success</source>
+                <target>Role changed successfully</target>
+            </trans-unit>
+            <trans-unit id="title.auth_change_role">
+                <source>title.auth_change_role</source>
+                <target>Change role</target>
+            </trans-unit>
+            <trans-unit id="label.role">
+                <source>label.role</source>
+                <target>Role</target>
+            </trans-unit>
+            <trans-unit id="label.choice_admin">
+                <source>label.choice_admin</source>
+                <target>Admin</target>
+            </trans-unit>
+            <trans-unit id="label.choice_user">
+                <source>label.choice_user</source>
+                <target>User</target>
+            </trans-unit>
+            <trans-unit id="title.user_change_password">
+                <source>title.user_change_password</source>
+                <target>Change password for user</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

@@ -370,6 +370,50 @@
                 <source>label.sure</source>
                 <target>Czy chcesz usunąć</target>
             </trans-unit>
+            <trans-unit id="action.gun_edit">
+                <source>action.gun_edit</source>
+                <target>Edytuj</target>
+            </trans-unit>
+            <trans-unit id="title.gun_edit">
+                <source>title.gun_edit</source>
+                <target>Edycja broni: </target>
+            </trans-unit>
+            <trans-unit id="message.gun_edit_success">
+                <source>message.gun_edit_success</source>
+                <target>Broń edytowana pomyślnie</target>
+            </trans-unit>
+            <trans-unit id="action.edit">
+                <source>action.edit</source>
+                <target>Wprowadź zmiany</target>
+            </trans-unit>
+            <trans-unit id="action.change_role">
+                <source>action.change_role</source>
+                <target>Zmień rolę</target>
+            </trans-unit>
+            <trans-unit id="message.change_role_success">
+                <source>message.change_role_success</source>
+                <target>Rola zmieniona pomyślnie</target>
+            </trans-unit>
+            <trans-unit id="title.auth_change_role">
+                <source>title.auth_change_role</source>
+                <target>Zmiana roli użytkownika</target>
+            </trans-unit>
+            <trans-unit id="label.role">
+                <source>label.role</source>
+                <target>Rola</target>
+            </trans-unit>
+            <trans-unit id="label.choice_admin">
+                <source>label.choice_admin</source>
+                <target>Administrator</target>
+            </trans-unit>
+            <trans-unit id="label.choice_user">
+                <source>label.choice_user</source>
+                <target>Użytkownik</target>
+            </trans-unit>
+            <trans-unit id="title.user_change_password">
+                <source>title.user_change_password</source>
+                <target>Zmiana hasła użytkownika</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

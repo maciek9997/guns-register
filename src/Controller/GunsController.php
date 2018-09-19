@@ -87,12 +87,12 @@ class GunsController implements ControllerProviderInterface
     }
 
     /**
-     * Index action.
-     * Funkcja dodawania nowej broni
-     * @param \Silex\Application                        $app     Silex application
-     * @param \Symfony\Component\HttpFoundation\Request $request Request object
-     *
-     * @return string Response
+     * Edit action.
+     * Funkcja edytowania broni
+     * @param Application $app
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @throws \Doctrine\DBAL\DBALException
      */
     public function editAction(Application $app, Request $request)
     {
@@ -114,7 +114,7 @@ class GunsController implements ControllerProviderInterface
                 'messages',
                 [
                     'type'    => 'success',
-                    'message' => 'message.gun_add_success',
+                    'message' => 'message.gun_edit_success',
                 ]
             );
 

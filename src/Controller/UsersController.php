@@ -78,6 +78,12 @@ class UsersController implements ControllerProviderInterface
         return $app['twig']->render('users/collection.html.twig', array('guns' => $guns, 'user' => $user));
     }
 
+    /**
+     * Funkcja pozwalająca na zmianę hasła użytkownikowi przez administratora
+     * @param Application $app
+     * @param Request $request
+     * @return mixed
+     */
     public function passwordAction(Application $app, Request $request)
     {
         $form = $app['form.factory']->createBuilder(ChangePasswordForm::class)->getForm();
@@ -106,6 +112,12 @@ class UsersController implements ControllerProviderInterface
         );
     }
 
+    /**
+     * Funkcja pozwalająca na zmianę roli użytkownikowi przez administratora
+     * @param Application $app
+     * @param Request $request
+     * @return mixed
+     */
     public function roleAction(Application $app, Request $request)
     {
         $usersRepository = new UserRepository($app['db']);

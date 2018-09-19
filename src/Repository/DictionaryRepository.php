@@ -115,7 +115,7 @@ class DictionaryRepository
     }
 
     /**
-     * Pobiera wszystkie dane z tabel słownikowych do formularza dodawania broni w celu umozliwienia ich odpowiedniego wyboru
+     * Pobiera wszystkie dane z tabel słownikowych do formularza dodawania/edycji broni w celu umozliwienia ich odpowiedniego wyboru
      * @return array
      * @throws DBALException
      */

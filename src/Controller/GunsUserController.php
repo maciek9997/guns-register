@@ -150,7 +150,6 @@ class GunsUserController implements ControllerProviderInterface
         );
     }
 
-
     /**
      * Funkcja wyświetlająca kolekcję danego użytkownika
      * @param Application $app

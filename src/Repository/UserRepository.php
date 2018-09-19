@@ -171,7 +171,7 @@ class UserRepository
     }
 
     /**
-     * Znajduje role użytkownika o podanym id
+     * Znajduje rolę użytkownika o podanym id
      * @param $id
      * @return mixed
      */
