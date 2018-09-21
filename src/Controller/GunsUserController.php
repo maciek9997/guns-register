@@ -1,5 +1,12 @@
 <?php
+/**
+ * GunsUser controller.
+ * Kontroler wyświetlania broni, jej dodawania i komentowania dla użytkownika
+ */
 
+/**
+ * This file is part of the Symfony package.
+ */
 namespace Controller;
 
 use Repository\CollectionRepository;

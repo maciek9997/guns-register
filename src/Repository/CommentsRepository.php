@@ -1,5 +1,12 @@
 <?php
+/**
+ * Comments repository.
+ * Repozytorium komentarzy
+ */
 
+/**
+ * This file is part of the Symfony package.
+ */
 namespace Repository;
 
 use Doctrine\DBAL\Connection;
@@ -27,9 +34,9 @@ class CommentsRepository
 
     /**
      * Dodanie komentarza przez danego użytkownika o danej broni
-     * @param $userId
-     * @param $gunId
-     * @param $formData
+     * @param integer $userId
+     * @param integer $gunId
+     * @param array   $formData
      */
     public function addComment($userId, $gunId, $formData)
     {
@@ -43,7 +50,7 @@ class CommentsRepository
 
     /**
      * Wyświetlenie komentarzy odnośnie danej broni
-     * @param $gunId
+     * @param integer $gunId
      *
      * @return array
      */

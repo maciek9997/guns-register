@@ -1,5 +1,12 @@
 <?php
+/**
+ * ChangeRole form.
+ * Formularz zmiany roli
+ */
 
+/**
+ * This file is part of the Symfony package.
+ */
 namespace Form;
 
 use Symfony\Component\Form\AbstractType;
@@ -26,6 +33,7 @@ class ChangeRoleForm extends AbstractType
     }
 
     /**
+     * Name of the form in html
      * @return null|string
      */
     public function getBlockPrefix()

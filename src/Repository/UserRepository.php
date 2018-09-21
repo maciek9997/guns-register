@@ -1,8 +1,12 @@
 <?php
 /**
  * User repository
+ * Repozytorium użytkowników
  */
 
+/**
+ * This file is part of the Symfony package.
+ */
 namespace Repository;
 
 use Doctrine\DBAL\Connection;
@@ -160,7 +164,7 @@ class UserRepository
 
     /**
      * Znajduje imię użytkownika o podanym id
-     * @param $id
+     * @param integer $id
      *
      * @return mixed
      */
@@ -178,7 +182,7 @@ class UserRepository
 
     /**
      * Znajduje rolę użytkownika o podanym id
-     * @param $id
+     * @param integer $id
      *
      * @return mixed
      */

@@ -1,6 +1,12 @@
 <?php
+/**
+ * GunsEdit form.
+ * Formularz edycji broni przez administratora
+ */
 
-
+/**
+ * This file is part of the Symfony package.
+ */
 namespace Form;
 
 use Symfony\Component\Form\AbstractType;
@@ -84,6 +90,7 @@ class GunsEditForm extends AbstractType
     }
 
     /**
+     * Name of the form in html
      * @return null|string
      */
     public function getBlockPrefix()

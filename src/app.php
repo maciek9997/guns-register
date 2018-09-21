@@ -1,4 +1,8 @@
 <?php
+/**
+ * App.php
+ * Rregistering providers for application
+ */
 
 use Silex\Application;
 use Silex\Provider\AssetServiceProvider;

@@ -1,8 +1,12 @@
 <?php
 /**
  * Login form.
+ * Formularz logowania
  */
 
+/**
+ * This file is part of the Symfony package.
+ */
 namespace Form;
 
 use Symfony\Component\Form\AbstractType;
@@ -68,6 +72,7 @@ class LoginType extends AbstractType
     }
 
     /**
+     * Name of the form in html
      * @return null|string
      */
     public function getBlockPrefix()

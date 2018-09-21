@@ -14,6 +14,7 @@ use Symfony\Component\Validator\ConstraintValidator;
 class UniqueEmailValidator extends ConstraintValidator
 {
     /**
+     * Walidacja unikalności adresu email
      * @param mixed      $value
      * @param Constraint $constraint
      */

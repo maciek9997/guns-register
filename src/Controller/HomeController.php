@@ -1,5 +1,12 @@
 <?php
+/**
+ * Home controller.
+ * Kontroler wyświetlania strony głównej
+ */
 
+/**
+ * This file is part of the Symfony package.
+ */
 namespace Controller;
 
 use Silex\Api\ControllerProviderInterface;

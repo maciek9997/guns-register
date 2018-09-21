@@ -1,5 +1,12 @@
 <?php
+/**
+ * Users controller.
+ * Kontroler wyświetlania użytkowników i zarządzania nimi przez administratora
+ */
 
+/**
+ * This file is part of the Symfony package.
+ */
 namespace Controller;
 
 use Repository\UserRepository;

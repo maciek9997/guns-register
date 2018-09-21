@@ -1,5 +1,12 @@
 <?php
+/**
+ * Dictionary repository.
+ * Repozytorium słownikowe
+ */
 
+/**
+ * This file is part of the Symfony package.
+ */
 namespace Repository;
 
 use Doctrine\DBAL\Connection;

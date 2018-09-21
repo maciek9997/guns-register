@@ -1,5 +1,12 @@
 <?php
+/**
+ * Comment form.
+ * Formularz dodawania komentarzy
+ */
 
+/**
+ * This file is part of the Symfony package.
+ */
 namespace Form;
 
 use Symfony\Component\Form\AbstractType;
@@ -34,6 +41,7 @@ class CommentForm extends AbstractType
     }
 
     /**
+     * Name of the form in html
      * @return null|string
      */
     public function getBlockPrefix()

@@ -1,5 +1,12 @@
 <?php
+/**
+ * Guns controller.
+ * Kontroler wyświetlania broni, jej edycji i dodawania dla administratora
+ */
 
+/**
+ * This file is part of the Symfony package.
+ */
 namespace Controller;
 
 use Form\GunsAddForm;

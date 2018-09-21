@@ -1,10 +1,12 @@
 <?php
 /**
- * Created by PhpStorm.
- * Date: 03.08.18
- * Time: 12:55
+ * Register form.
+ * Formularz rejestracji
  */
 
+/**
+ * This file is part of the Symfony package.
+ */
 namespace Form;
 
 use Symfony\Component\Form\AbstractType;
@@ -76,6 +78,7 @@ class RegisterForm extends AbstractType
     }
 
     /**
+     * OptionsResolver
      * @param OptionsResolver $resolver
      */
     public function configureOptions(OptionsResolver $resolver)
@@ -88,6 +91,7 @@ class RegisterForm extends AbstractType
     }
 
     /**
+     * Name of the form in html
      * @return null|string
      */
     public function getBlockPrefix()

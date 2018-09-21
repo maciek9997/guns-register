@@ -1,5 +1,12 @@
 <?php
+/**
+ * Guns repository.
+ * Repozytorium broni
+ */
 
+/**
+ * This file is part of the Symfony package.
+ */
 namespace Repository;
 
 use Doctrine\DBAL\Connection;
@@ -30,7 +37,7 @@ class GunsRepository
 
     /**
      * Wyświetlenie listy wszystkich broni
-     * @param int $page
+     * @param integer $page
      *
      * @return array
      */
@@ -56,7 +63,7 @@ class GunsRepository
 
     /**
      * Wyświetlenie broni o danym id
-     * @param $id
+     * @param integer $id
      *
      * @return mixed
      */
@@ -74,7 +81,7 @@ class GunsRepository
 
     /**
      * Usunięcie broni o danym id
-     * @param $id
+     * @param integer $id
      *
      * @return \Doctrine\DBAL\Driver\Statement|int
      */

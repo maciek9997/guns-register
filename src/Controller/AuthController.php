@@ -3,6 +3,10 @@
  * Auth controller.
  * Kontroler rejestracji, logowania i wylogowywania
  */
+
+/**
+* This file is part of the Symfony package.
+ */
 namespace Controller;
 
 use Form\LoginType;

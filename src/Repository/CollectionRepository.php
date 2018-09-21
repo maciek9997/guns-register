@@ -1,5 +1,12 @@
 <?php
+/**
+ * Collection repository.
+ * Repozytorium kolekcji
+ */
 
+/**
+ * This file is part of the Symfony package.
+ */
 namespace Repository;
 
 use Doctrine\DBAL\Connection;
@@ -27,8 +34,8 @@ class CollectionRepository
 
     /**
      * Dodawanie danej broni do kolekcji danego użytkownika
-     * @param $userId
-     * @param $gunId
+     * @param integer $userId
+     * @param integer $gunId
      */
     public function addGun($userId, $gunId)
     {
@@ -40,7 +47,7 @@ class CollectionRepository
 
     /**
      * Wyszukanie broni z kolekcji danego użytkownika
-     * @param $userId
+     * @param integer $userId
      *
      * @return array
      */
@@ -59,8 +66,8 @@ class CollectionRepository
 
     /**
      * Wyszukanie czy dana broń już jest w kolekcji danego użytkownika
-     * @param $userId
-     * @param $gunId
+     * @param integer $userId
+     * @param integer $gunId
      *
      * @return mixed
      */
@@ -80,8 +87,8 @@ class CollectionRepository
 
     /**
      * Usuwanie danej broni z kolekcji użytkownika
-     * @param $id
-     * @param $userId
+     * @param integer $id
+     * @param integer $userId
      *
      * @return \Doctrine\DBAL\Driver\Statement|int
      */
